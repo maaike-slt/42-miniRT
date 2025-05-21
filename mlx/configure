@@ -21,6 +21,11 @@ log_error(){
 
 # find and print x11 header path
 get_xlib_include_path(){
+	if [ -n "$X11_INCLUDE_PATH" ] && [ -n "$X11_EXT_INCLUDE_PATH" ]; then
+		echo "${X11_INCLUDE_PATH} -I${X11_EXT_INCLUDE_PATH}"
+		return 0
+	fi
+
 	local result=""
 
 	for inc in \

@@ -41,12 +41,22 @@
               packages = with pkgs; [
                 # build dependencies
                 clang
-                readline
+                pkg-config
+
+                ## X11
+                xorg.libX11.dev
+                xorg.libXext
+                libbsd
 
                 # dev tools
                 norminette
                 # lldb
               ];
+
+              env = {
+                X11_INCLUDE_PATH = "${pkgs.xorg.libX11.dev}/include";
+                X11_EXT_INCLUDE_PATH = "${pkgs.xorg.libXext.dev}/include";
+              };
 
               languages.c = {
                 enable = true;
