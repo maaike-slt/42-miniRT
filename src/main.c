@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:32:05 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/21 18:53:10 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/21 22:13:39 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ int	main(int argc, char *argv[])
 //		return (free_env(&env));
 //	if (!parse(&env, argv[1]))
 //		return (free_env(&env));
+
+	// render
+
 	create_window(&env);
 //	if (!create_window(&env))
 //		return (free_spr(&env) && free_env(&env));

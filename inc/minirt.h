@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/21 19:02:33 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/21 21:58:57 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,18 @@
 #  define WINDOW_NAME	"miniRT"
 # endif
 
+typedef struct s_pix
+{
+	char	r;
+	char	g;
+	char	b;
+	char	a;
+}	t_pix;
+
 typedef struct s_img
 {
 	void	*ptr;
+	char	*buf;
 	int		w;
 	int		h;
 }	t_img;
@@ -42,8 +51,9 @@ typedef struct s_win
 
 typedef struct s_env
 {
-	void			*mlx;
-	t_win			win;
+	void	*mlx;
+	t_win	win;
+	t_img	*pov;
 }	t_env;
 
 enum	e_event
