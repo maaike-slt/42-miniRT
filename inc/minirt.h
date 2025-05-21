@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/21 18:33:06 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/21 19:02:33 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,9 @@ enum	e_keypress_linux
 	K_D = 100,
 };
 
+int		close_win(t_env *env);
+bool	create_window(t_env *env);
+void	set_hook(t_env *env);
+int		handle_keycode(int keycode, t_env *env);
 
 #endif

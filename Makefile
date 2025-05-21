@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/05/21 18:40:49 by adelille         ###   ########.fr        #
+#    Updated: 2025/05/21 19:03:04 by msloot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ SRC_PATH =	./src/
 OBJ_PATH =	./obj/
 INC =		./inc/
 
-SRC_NAME =	main.c
+SRC_NAME =	main.c close_win.c create_window.c hook.c handle_keycode.c
 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
