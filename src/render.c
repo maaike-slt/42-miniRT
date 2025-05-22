@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 22:05:51 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/21 22:19:33 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/22 21:39:22 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool	render(t_env *env)
 		return (free_env(&env));
 	env->pov[0].ptr = mlx_new_image(env->mlx, env->win.w, env->win.h);
 	env->pov[0].buf = mlx_get_data_addr(env->pov[0].ptr,
-			&env->pov[0].bpp, &env->pov[0].line_size, &env->pov[0].endian);
+			&(env->pov[0].bpp), &(env->pov[0].size_line), &(env->pov[0].endian));
 
 	t_pix pix;
 	pix.r = 0xff;

@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/21 21:58:57 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/22 21:39:02 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ typedef struct s_img
 	char	*buf;
 	int		w;
 	int		h;
+	int		bpp;
+	int		size_line;
+	int		endian;
 }	t_img;
 
 typedef struct s_win
