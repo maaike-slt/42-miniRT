@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/22 21:39:02 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/22 22:01:07 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,15 @@ typedef struct s_img
 {
 	void	*ptr;
 	char	*buf;
-	int		w;
-	int		h;
 	int		bpp;
 	int		size_line;
 	int		endian;
 }	t_img;
+
+typedef struct s_scene
+{
+	size_t	cam_amt;
+}	t_scene;
 
 typedef struct s_win
 {
@@ -56,6 +59,7 @@ typedef struct s_env
 {
 	void	*mlx;
 	t_win	win;
+	t_scene	scene;
 	t_img	*pov;
 }	t_env;
 
@@ -86,9 +90,16 @@ enum	e_keypress_linux
 	K_D = 100,
 };
 
+bool	init(t_env *env);
+bool	init_pov(t_env *env);
+
 int		close_win(t_env *env);
 bool	create_window(t_env *env);
 void	set_hook(t_env *env);
 int		handle_keycode(int keycode, t_env *env);
+
+bool	render(t_env *env);
+
+int		free_env(t_env *env);
 
 #endif
