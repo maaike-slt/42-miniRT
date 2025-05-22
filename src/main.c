@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:32:05 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/22 22:11:44 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/22 22:19:49 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ int	main(int argc, char *argv[])
 
 	if (!init_pov(&env))
 		return (free_env(&env));
-//	if (!render(&env))
-//		return (free_env(&env));
+	if (!render(&env))
+		return (free_env(&env));
 
 	create_window(&env);
 //	if (!create_window(&env))
 //		return (free_spr(&env) && free_env(&env));
 	set_hook(&env);
+	mlx_put_image_to_window(env.mlx, env.win.ptr, env.pov[0].ptr, 0, 0);
 	mlx_loop(env.mlx);
 	free_env(&env);
 	return (0);
