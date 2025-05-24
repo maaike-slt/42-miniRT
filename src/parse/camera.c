@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:30:43 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/24 16:16:25 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:52:46 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ bool	parse_camera(t_env *env, const t_line_arg *la)
 	t_camera	*c;
 
 	if (la->split_size != 4)
-		return (false); // TODO: @adelille create print error function
+		return (puterr_invalid_token_amount(\
+la, "C", 4, "C <pos in x,y,z> <rot in x,y,z> <fov>"), false);
 	c = &(env->scene.c[env->scene.c_amt]);
 	(void)c;
 	// TODO: @msloot create parse_vec()

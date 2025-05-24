@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:11:31 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 16:51:58 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:49:37 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static bool	parse_line_arg(t_env *env, const t_line_arg *la)
 {
 	if (ft_strcmp(la->split[0], "R") == 0)
 		return (parse_resolution(env, la));
-	if (ft_strcmp(la->split[0], "C") == 0)
+	if (ft_strcmp(la->split[0], "C") == 0 || ft_strcmp(la->split[0], "c") == 0)
 		return (parse_camera(env, la));
 	// if ...
 	return (true);

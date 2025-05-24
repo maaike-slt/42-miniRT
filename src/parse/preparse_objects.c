@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:26:02 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 16:42:16 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:49:27 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ static bool count_object(t_env *env, const char *line, size_t line_index)
 		return (true);
 	else if (identifier[1] == '\0')
 	{
-		if (identifier[0] == 'C')
+		if (identifier[0] == 'R')
+			;
+		else if (identifier[0] == 'C' || identifier[0] == 'c')
 			env->scene.c_amt++;
 		else if (identifier[0] == 'A')
 			env->scene.a_amt++;

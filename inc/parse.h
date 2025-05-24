@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:53:58 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 17:10:56 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:46:49 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ bool	parse_resolution(t_env *env, const t_line_arg *la);
 
 void	puterr_invalid_type_identifier(
 	const char *line, size_t line_index, const char *identifier);
+void	puterr_invalid_token_amount(
+	const t_line_arg *la, const char *identifier,
+	size_t expected, const char *line_help);
 void	puterr_invalid_int(
 	const t_line_arg *la, const char *invalid_token, ssize_t min, ssize_t max);
 
