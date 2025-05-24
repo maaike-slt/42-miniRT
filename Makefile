@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/05/22 22:04:33 by adelille         ###   ########.fr        #
+#    Updated: 2025/05/24 11:16:39 by msloot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,7 @@ INC =		./inc/
 
 SRC_NAME =	main.c \
 			init.c \
+			parse/parse.c \
 			close_win.c create_window.c hook.c handle_keycode.c \
 			render.c \
 			free.c
