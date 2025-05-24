@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/05/24 17:35:47 by adelille         ###   ########.fr        #
+#    Updated: 2025/05/24 20:45:13 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,7 @@ SRC_NAME =	main.c \
 			parse/parse.c parse/parse_objects.c parse/preparse_objects.c \
 			parse/resolution.c parse/camera.c \
 			parse/puterr.c \
+			vec3_math/sub.c vec3_math/dot.c vec3_math/magnitude.c vec3_math/normalize.c \
 			close_win.c create_window.c hook.c handle_keycode.c \
 			render.c \
 			puterr.c \

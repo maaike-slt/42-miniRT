@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sub.c                                              :+:      :+:    :+:   */
+/*   dot.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 20:29:23 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 20:36:01 by adelille         ###   ########.fr       */
+/*   Created: 2025/05/24 20:34:13 by adelille          #+#    #+#             */
+/*   Updated: 2025/05/24 20:39:34 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-inline t_vec3	vec3_sub(t_vec3 a, t_vec3 b)
+inline float	vec3_dot(t_vec3 a, t_vec3 b)
 {
-	return ((t_vec3){
-		.x = a.x - b.x,
-		.y = a.y - b.y,
-		.z = a.z - b.z
-	});
+	return (a.x * b.x + a.y * b.y + a.z * b.z);
 }
