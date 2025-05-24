@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 17:09:33 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:44:47 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,5 +125,6 @@ bool	render(t_env *env);
 int		free_env(t_env *env);
 
 void	puterr(void);
+void	puterr_argc(void);
 
 #endif
