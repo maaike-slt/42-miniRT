@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:11:31 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 17:49:37 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:03:53 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static bool	parse_line_arg(t_env *env, const t_line_arg *la)
 	return (true);
 }
 
-static bool parse_line(t_env *env, t_line_arg *la)
+static bool	parse_line(t_env *env, t_line_arg *la)
 {
 	if (la->line[0] == '\0')
 		return (true);

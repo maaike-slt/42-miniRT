@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 17:12:09 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 17:50:25 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:04:43 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ R 1920 1080
 static size_t	parse_int(const char *str, const t_line_arg *la)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while (str[i])
 	{

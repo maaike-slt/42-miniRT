@@ -6,14 +6,14 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:09:57 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/24 16:46:29 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:03:27 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "parse.h"
 
-static bool with_file(
+static bool	with_file(
 	t_env *env, const char *file, bool (*parse_fn)(t_env *, int))
 {
 	int		fd;
@@ -32,10 +32,11 @@ static bool with_file(
 	return (res);
 }
 
-static bool validate_scene(t_env *env)
+static bool	validate_scene(t_env *env)
 {
 	if (env->scene.c_amt == 0)
-		return (puterr(), ft_putstr_fd("no camera found\n", STDERR_FILENO), false);
+		return (\
+puterr(), ft_putstr_fd("no camera found\n", STDERR_FILENO), false);
 	// if ...
 	return (true);
 }

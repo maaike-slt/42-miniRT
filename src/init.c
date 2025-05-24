@@ -6,13 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:48:59 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 16:54:57 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:05:57 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void init_scene(t_scene *scene)
+static void	init_scene(t_scene *scene)
 {
 	scene->c = NULL;
 	scene->c_amt = 0;
@@ -71,22 +71,28 @@ bool	init_objects(t_env *env)
 	env->scene.c = (t_camera *)malloc(sizeof(t_camera) * env->scene.c_amt);
 	if (!env->scene.c)
 		return (false);
-//	env->scene.a = (t_ambient_light *)malloc(sizeof(t_ambient_light) * env->scene.a_amt);
+//	env->scene.a = \
+//(t_ambient_light *)malloc(sizeof(t_ambient_light) * env->scene.a_amt);
 //	if (!env->scene.a)
 //		return (false);
-//	env->scene.l = (t_light *)malloc(sizeof(t_light) * env->scene.l_amt);
+//	env->scene.l = \
+//(t_light *)malloc(sizeof(t_light) * env->scene.l_amt);
 //	if (!env->scene.l)
 //		return (false);
-//	env->scene.tr = (t_triangle *)malloc(sizeof(t_triangle) * env->scene.tr_amt);
+//	env->scene.tr = \
+//(t_triangle *)malloc(sizeof(t_triangle) * env->scene.tr_amt);
 //	if (!env->scene.tr)
 //		return (false);
-//	env->scene.pl = (t_plane *)malloc(sizeof(t_plane) * env->scene.pl_amt);
+//	env->scene.pl = \
+//(t_plane *)malloc(sizeof(t_plane) * env->scene.pl_amt);
 //	if (!env->scene.pl)
 //		return (false);
-//	env->scene.sp = (t_sphere *)malloc(sizeof(t_sphere) * env->scene.sp_amt);
+//	env->scene.sp = \
+//(t_sphere *)malloc(sizeof(t_sphere) * env->scene.sp_amt);
 //	if (!env->scene.sp)
 //		return (false);
-//	env->scene.cy = (t_cylinder *)malloc(sizeof(t_cylinder) * env->scene.cy_amt);
+//	env->scene.cy = \
+//(t_cylinder *)malloc(sizeof(t_cylinder) * env->scene.cy_amt);
 //	if (!env->scene.cy)
 //		return (false);
 	return (true);

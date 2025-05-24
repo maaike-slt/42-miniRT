@@ -6,14 +6,14 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:06:57 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 17:51:28 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:03:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "parse.h"
 
-static void puterr_line(const char *line, size_t line_index)
+static void	puterr_line(const char *line, size_t line_index)
 {
 	size_t	len;
 
@@ -49,7 +49,10 @@ void	puterr_invalid_type_identifier(
 }
 
 void	puterr_invalid_token_amount(
-	const t_line_arg *la, const char *identifier, size_t expected, const char *line_help)
+	const t_line_arg *la,
+	const char *identifier,
+	size_t expected,
+	const char *line_help)
 {
 	puterr_line(la->line, la->line_index);
 	ft_putstr_fd(identifier, STDERR_FILENO);

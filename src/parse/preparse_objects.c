@@ -6,14 +6,14 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:26:02 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 17:49:27 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:04:31 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "parse.h"
 
-static void extract_identifier(const char *line, char *identifier)
+static void	extract_identifier(const char *line, char *identifier)
 {
 	size_t	line_i;
 	size_t	id_i;
@@ -33,7 +33,7 @@ static void extract_identifier(const char *line, char *identifier)
 	}
 }
 
-static bool count_object(t_env *env, const char *line, size_t line_index)
+static bool	count_object(t_env *env, const char *line, size_t line_index)
 {
 	char	identifier[3];
 
@@ -75,7 +75,7 @@ static bool count_object(t_env *env, const char *line, size_t line_index)
 	return (true);
 }
 
-static void reset_scene_amt(t_env *env)
+static void	reset_scene_amt(t_env *env)
 {
 	env->scene.c_amt = 0;
 //	env->scene.a_amt = 0;
