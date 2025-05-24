@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:32:05 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/24 11:10:26 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/24 16:43:40 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int argc, char *argv[])
 		return (free_env(&env));
 	env.win.w = 400;
 	env.win.h = 400;
-	env.scene.cam_amt = 1;
 
 	if (!init_pov(&env))
 		return (free_env(&env));

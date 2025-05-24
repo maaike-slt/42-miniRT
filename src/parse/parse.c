@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:09:57 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/24 15:25:58 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:44:57 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ static bool with_file(
 	return (res);
 }
 
+static bool validate_scene(t_env *env)
+{
+	if (env->scene.c_amt == 0)
+		return (puterr(), ft_putstr_fd("no camera found\n", STDERR_FILENO), false);
+	// if ...
+	return (true);
+}
+
 bool	parse(t_env *env, const char *file)
 {
 	// check if file ends in `.rt`
@@ -35,6 +43,7 @@ bool	parse(t_env *env, const char *file)
 		return (false);
 	if (!with_file(env, file, parse_objects))
 		return (false);
-	// check if scene is valid (right amount of camera, etc ...)
+	if (!validate_scene(env))
+		return (false);
 	return (true);
 }
