@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 12:06:46 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/24 15:02:42 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ bool	init(t_env *env);
 bool	init_pov(t_env *env);
 
 bool	parse(t_env *env, const char *file);
-bool	parse_camera(t_env *env, char **split, size_t size);
 
 int		close_win(t_env *env);
 bool	create_window(t_env *env);
