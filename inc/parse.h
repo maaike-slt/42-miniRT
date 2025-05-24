@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:53:58 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 15:04:05 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 15:07:19 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ typedef struct s_line_arg
 }	t_line_arg;
 
 bool	parse_camera(t_env *env, const t_line_arg *la);
+
+void	puterr_invalid_type_identifier(const t_line_arg *la);
 
 #endif
