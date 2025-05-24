@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:30:43 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/24 20:31:20 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 20:45:19 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ la, "C", 4, "C <pos in x,y,z> <rot in x,y,z> <fov>"), false);
 	// TODO: @msloot create parse_vec()
 	// c->pos = parse_vec3(la->split[1]);
 	// c->rot = parse_vec3(la->split[2]);
-	// TODO: @msloot create ftoa() + dtoa()
-	// c->fov = ftoa(la->split[3]);
+	// TODO: @msloot create atof() + atod()
+	// c->fov = atof(la->split[3]);
 	env->scene.c_amt++;
 	return (true);
 }
