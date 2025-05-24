@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 16:18:22 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:09:33 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 # ifndef WINDOW_NAME
 #  define WINDOW_NAME	"miniRT"
 # endif
+
+# define MAX_RESOLUTION	65535
 
 typedef struct s_pix
 {

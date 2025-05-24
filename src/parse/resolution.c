@@ -1,13 +1,12 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camera.c                                           :+:      :+:    :+:   */
+/*   resolution.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 11:30:43 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/24 16:16:25 by adelille         ###   ########.fr       */
+/*   Created: 2025/05/24 17:12:09 by adelille          #+#    #+#             */
+/*   Updated: 2025/05/24 17:13:15 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +21,7 @@ R 1920 1080
   ∗ height: Height of the image in pixels, in the range [1,65535]: 1080
 */
 
-static size_t	parse_value(const char *str, const t_line_arg *la)
+static size_t	parse_int(const char *str, const t_line_arg *la)
 {
 	size_t	i;
 	
@@ -30,12 +29,14 @@ static size_t	parse_value(const char *str, const t_line_arg *la)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			return (0); // TODO: @adelille create print error function
+			return (puterr_invalid_int(la, str, 1, MAX_RESOLUTION), 0);
 		i++;
 	}
+	if (i > 5)
+		return (puterr_invalid_int(la, str, 1, MAX_RESOLUTION), 0);
 	i = ft_atoun(str);
-	if (i == 0 || i > 65535)
-		return (0); // TODO: @adelille create print error function
+	if (i == 0 || i > MAX_RESOLUTION)
+		return (puterr_invalid_int(la, str, 1, MAX_RESOLUTION), 0);
 	return (i);
 }
 
@@ -43,8 +44,8 @@ bool	parse_resolution(t_env *env, const t_line_arg *la)
 {
 	if (la->split_size != 3)
 		return (false); // TODO: @adelille create print error function
-	env->win.w = ft_parse_value(la->split[1]);
-	env->win.h = ft_parse_value(la->split[2]);
+	env->win.w = parse_int(la->split[1], la);
+	env->win.h = parse_int(la->split[2], la);
 	if (env->win.w == 0 || env->win.h == 0)
 		return (false);
 	return (true);
