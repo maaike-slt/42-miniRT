@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 11:19:58 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/24 12:06:46 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 # include "../libft/inc/libft.h"
 # include "../mlx/mlx.h"
+
+# include "object.h"
 
 # ifndef WINDOW_NAME
 #  define WINDOW_NAME	"miniRT"
@@ -47,7 +49,8 @@ typedef struct s_img
 
 typedef struct s_scene
 {
-	size_t	cam_amt;
+	t_camera	*cam;
+	size_t		cam_amt;
 }	t_scene;
 
 typedef struct s_win
@@ -96,6 +99,7 @@ bool	init(t_env *env);
 bool	init_pov(t_env *env);
 
 bool	parse(t_env *env, const char *file);
+bool	parse_camera(t_env *env, char **split, size_t size);
 
 int		close_win(t_env *env);
 bool	create_window(t_env *env);
