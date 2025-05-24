@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:53:58 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 15:40:51 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:55:33 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ bool	preparse_objects(t_env *env, int fd);
 bool	parse_objects(t_env *env, int fd);
 
 bool	parse_camera(t_env *env, const t_line_arg *la);
+bool	parse_resolution(t_env *env, const t_line_arg *la);
 
 void	puterr_invalid_type_identifier(
 	const char *line, size_t line_index, const char *identifier);

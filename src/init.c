@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:48:59 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 16:12:32 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:54:57 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ bool	init(t_env *env)
 {
 	env->mlx = NULL;
 	env->win.ptr = NULL;
-	env->pov = NULL;
+	env->win.w = 1280;
+	env->win.h = 720;
 	init_scene(&env->scene);
+	env->pov = NULL;
 	env->mlx = mlx_init();
 	if (!env->mlx)
 		return (false);

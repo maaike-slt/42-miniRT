@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/05/24 15:29:39 by adelille         ###   ########.fr        #
+#    Updated: 2025/05/24 17:01:32 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ INC =		./inc/
 SRC_NAME =	main.c \
 			init.c \
 			parse/parse.c parse/parse_objects.c parse/preparse_objects.c \
-			parse/camera.c \
+			parse/resolution parse/camera.c \
 			parse/puterr.c \
 			close_win.c create_window.c hook.c handle_keycode.c \
 			render.c \
