@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 15:02:42 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 15:49:59 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,20 @@ typedef struct s_img
 
 typedef struct s_scene
 {
-	t_camera	*cam;
-	size_t		cam_amt;
+	t_camera		*c;
+	size_t			c_amt;
+	// t_ambient_light	*a;
+	size_t			a_amt;
+	// t_light			*l;
+	size_t			l_amt;
+	// t_triangle		*tr;
+	size_t			tr_amt;
+	// t_plane			*pl;
+	size_t			pl_amt;
+	// t_sphere			*sp;
+	size_t			sp_amt;
+	// t_cylinder		*cy;
+	size_t			cy_amt;
 }	t_scene;
 
 typedef struct s_win

@@ -1,0 +1,84 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   preparse_objects.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/24 15:26:02 by adelille          #+#    #+#             */
+/*   Updated: 2025/05/24 15:51:01 by adelille         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "minirt.h"
+#include "parse.h"
+
+// guess triangle first to optimize huge scene filled with triangles
+
+static bool count_object(t_env *env, const char *line, size_t line_index)
+{
+	size_t	i;
+	char	identifier[3];
+
+	i = 0;
+	while (i < 2 && line[i] != '\0' && !ft_isspace(line[i]))
+	{
+		identifier[i] = line[i];
+		i++;
+	}
+	identifier[i] = '\0';
+	if (line[2] == '\0')
+	{
+		if (ft_strncmp(line, "tr", 2) == 0)
+			env->scene.tr_amt++;
+		else if (ft_strncmp(line, "pl", 2) == 0)
+			env->scene.pl_amt++;
+		else if (ft_strncmp(line, "sp", 2) == 0)
+			env->scene.sp_amt++;
+		else if (ft_strncmp(line, "cy", 2) == 0)
+			env->scene.cy_amt++;
+		else
+		{
+			puterr_invalid_type_identifier(line, line_index, identifier);
+			return (false);
+		}
+	}
+	else if (line[1] == '\0')
+	{
+		if (identifier[0] == 'C')
+			env->scene.c_amt++;
+		else if (identifier[0] == 'A')
+			env->scene.a_amt++;
+		else if (identifier[0] == 'L')
+			env->scene.l_amt++;
+		else
+		{
+			puterr_invalid_type_identifier(line, line_index, identifier);
+			return (false);
+		}
+	}
+	return (true);
+}
+
+bool	preparse_objects(t_env *env, int fd)
+{
+	size_t	i;
+	char	*line;
+	bool	valid;
+
+	valid = true;
+	i = 0;
+	line = get_next_line(fd);
+	while (line)
+	{
+		if (!count_object(env, line, i))
+			valid = false;
+		free(line);
+		line = get_next_line(fd);
+		i++;
+	}
+	if (!valid)
+		return (false);
+	init_objects(env);
+	return (true);
+}

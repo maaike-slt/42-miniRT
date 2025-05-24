@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   puterr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 14:53:58 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 15:40:51 by adelille         ###   ########.fr       */
+/*   Created: 2025/05/24 15:27:35 by adelille          #+#    #+#             */
+/*   Updated: 2025/05/24 15:28:35 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-# define PARSE_H
+#include "minirt.h"
 
-typedef struct s_line_arg
+void	puterr()
 {
-	char		*line;
-	size_t		line_index;
-	char		**split;
-	size_t		split_size;
-}	t_line_arg;
-
-bool	preparse_objects(t_env *env, int fd);
-bool	parse_objects(t_env *env, int fd);
-
-bool	parse_camera(t_env *env, const t_line_arg *la);
-
-void	puterr_invalid_type_identifier(
-	const char *line, size_t line_index, const char *identifier);
-
-#endif
+	ft_putstr_fd(Y_BRED, STDERR_FILENO);
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	ft_putstr_fd(Y_RESET, STDERR_FILENO);
+}
