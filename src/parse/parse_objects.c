@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_object.c                                     :+:      :+:    :+:   */
+/*   parse_objects.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:11:31 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 15:11:42 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:26:22 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ static bool	parse_line_arg(t_env *env, const t_line_arg *la)
 	if (ft_strcmp(la->split[0], "C") == 0)
 		return (parse_camera(env, la));
 	// else if ...
-	else
-		return (puterr_invalid_type_identifier(la), /*false*/ true);	// update when all object are parsed
+	return (true);
 }
 
 static bool parse_line(t_env *env, t_line_arg *la)

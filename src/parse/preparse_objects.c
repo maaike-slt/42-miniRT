@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:26:02 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 15:51:01 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:28:19 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static bool count_object(t_env *env, const char *line, size_t line_index)
 	char	identifier[3];
 
 	i = 0;
-	while (i < 2 && line[i] != '\0' && !ft_isspace(line[i]))
+	while (i < 2 && line[i] && !ft_isspace(line[i]))
 	{
 		identifier[i] = line[i];
 		i++;
@@ -60,6 +60,17 @@ static bool count_object(t_env *env, const char *line, size_t line_index)
 	return (true);
 }
 
+static void reset_scene_amt(t_env *env)
+{
+	env->scene.c_amt = 0;
+//	env->scene.a_amt = 0;
+//	env->scene.l_amt = 0;
+//	env->scene.tr_amt = 0;
+//	env->scene.pl_amt = 0;
+//	env->scene.sp_amt = 0;
+//	env->scene.cy_amt = 0;
+}
+
 bool	preparse_objects(t_env *env, int fd)
 {
 	size_t	i;
@@ -71,6 +82,7 @@ bool	preparse_objects(t_env *env, int fd)
 	line = get_next_line(fd);
 	while (line)
 	{
+		ft_putstr_fd(line, STDERR_FILENO);
 		if (!count_object(env, line, i))
 			valid = false;
 		free(line);
@@ -80,5 +92,6 @@ bool	preparse_objects(t_env *env, int fd)
 	if (!valid)
 		return (false);
 	init_objects(env);
+	reset_scene_amt(env);
 	return (true);
 }

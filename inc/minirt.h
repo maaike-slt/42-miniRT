@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 15:49:59 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:18:22 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ enum	e_keypress_linux
 };
 
 bool	init(t_env *env);
+bool	init_objects(t_env *env);
 bool	init_pov(t_env *env);
 
 bool	parse(t_env *env, const char *file);
@@ -120,5 +121,7 @@ int		handle_keycode(int keycode, t_env *env);
 bool	render(t_env *env);
 
 int		free_env(t_env *env);
+
+void	puterr(void);
 
 #endif

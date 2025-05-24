@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:48:59 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 15:52:53 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:12:32 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ static void init_scene(t_scene *scene)
 {
 	scene->c = NULL;
 	scene->c_amt = 0;
-	scene->a = NULL;
-	scene->a_amt = 0;
-	scene->l = NULL;
-	scene->l_amt = 0;
-	scene->tr = NULL;
-	scene->tr_amt = 0;
-	scene->pl = NULL;
-	scene->pl_amt = 0;
-	scene->sp = NULL;
-	scene->sp_amt = 0;
-	scene->cy = NULL;
-	scene->cy_amt = 0;
+//	scene->a = NULL;
+//	scene->a_amt = 0;
+//	scene->l = NULL;
+//	scene->l_amt = 0;
+//	scene->tr = NULL;
+//	scene->tr_amt = 0;
+//	scene->pl = NULL;
+//	scene->pl_amt = 0;
+//	scene->sp = NULL;
+//	scene->sp_amt = 0;
+//	scene->cy = NULL;
+//	scene->cy_amt = 0;
 }
 
 bool	init(t_env *env)
@@ -46,11 +46,11 @@ bool	init_pov(t_env *env)
 {
 	size_t	i;
 
-	env->pov = (t_img *)malloc(sizeof(t_img) * env->scene.cam_amt);
+	env->pov = (t_img *)malloc(sizeof(t_img) * env->scene.c_amt);
 	if (!env->pov)
 		return (false);
 	i = 0;
-	while (i < env->scene.cam_amt)
+	while (i < env->scene.c_amt)
 	{
 		env->pov[i].ptr = mlx_new_image(env->mlx, env->win.w, env->win.h);
 		if (!env->pov[i].ptr)
@@ -87,5 +87,5 @@ bool	init_objects(t_env *env)
 //	env->scene.cy = (t_cylinder *)malloc(sizeof(t_cylinder) * env->scene.cy_amt);
 //	if (!env->scene.cy)
 //		return (false);
-//	return (true);
+	return (true);
 }
