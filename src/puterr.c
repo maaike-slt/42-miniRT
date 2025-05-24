@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object.h                                           :+:      :+:    :+:   */
+/*   puterr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 11:56:12 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/24 11:59:49 by msloot           ###   ########.fr       */
+/*   Created: 2025/05/24 15:27:35 by adelille          #+#    #+#             */
+/*   Updated: 2025/05/24 18:00:50 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OBJECT_H
-# define OBJECT_H
+#include "minirt.h"
 
-typedef struct s_vec
+void	puterr(void)
 {
-	float	x;
-	float	y;
-	float	z;
-}	t_vec;
-
-typedef struct s_camera
-{
-	t_vec	pos;
-	t_vec	rot;
-	float	fov;
-}	t_camera;
-
-#endif
+	ft_putstr_fd(Y_B_RED, STDERR_FILENO);
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	ft_putstr_fd(Y_RESET, STDERR_FILENO);
+}

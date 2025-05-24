@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 15:02:42 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:09:33 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 #  define WINDOW_NAME	"miniRT"
 # endif
 
+# define MAX_RESOLUTION	65535
+
 typedef struct s_pix
 {
 	char	r;
@@ -49,8 +51,20 @@ typedef struct s_img
 
 typedef struct s_scene
 {
-	t_camera	*cam;
-	size_t		cam_amt;
+	t_camera		*c;
+	size_t			c_amt;
+	// t_ambient_light	*a;
+	size_t			a_amt;
+	// t_light			*l;
+	size_t			l_amt;
+	// t_triangle		*tr;
+	size_t			tr_amt;
+	// t_plane			*pl;
+	size_t			pl_amt;
+	// t_sphere			*sp;
+	size_t			sp_amt;
+	// t_cylinder		*cy;
+	size_t			cy_amt;
 }	t_scene;
 
 typedef struct s_win
@@ -96,6 +110,7 @@ enum	e_keypress_linux
 };
 
 bool	init(t_env *env);
+bool	init_objects(t_env *env);
 bool	init_pov(t_env *env);
 
 bool	parse(t_env *env, const char *file);
@@ -108,5 +123,7 @@ int		handle_keycode(int keycode, t_env *env);
 bool	render(t_env *env);
 
 int		free_env(t_env *env);
+
+void	puterr(void);
 
 #endif

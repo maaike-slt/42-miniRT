@@ -6,11 +6,29 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:43:32 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/22 22:03:13 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:20:45 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+static void	free_scene(t_env *env)
+{
+	if (env->scene.c)
+		free(env->scene.c);
+//	if (env->scene.a)
+//		free(env->scene.a);
+//	if (env->scene.l)
+//		free(env->scene.l);
+//	if (env->scene.tr)
+//		free(env->scene.tr);
+//	if (env->scene.pl)
+//		free(env->scene.pl);
+//	if (env->scene.sp)
+//		free(env->scene.sp);
+//	if (env->scene.cy)
+//		free(env->scene.cy);
+}
 
 static void	free_pov(t_env *env)
 {
@@ -19,7 +37,7 @@ static void	free_pov(t_env *env)
 	if (!env->pov)
 		return ;
 	i = 0;
-	while (i < env->scene.cam_amt && env->pov[i].ptr)
+	while (i < env->scene.c_amt && env->pov[i].ptr)
 	{
 		mlx_destroy_image(env->mlx, env->pov[i].ptr);
 		i++;
@@ -30,6 +48,7 @@ static void	free_pov(t_env *env)
 int	free_env(t_env *env)
 {
 	free_pov(env);
+	free_scene(env);
 	if (env->mlx && env->win.ptr)
 		mlx_destroy_window(env->mlx, env->win.ptr);
 	if (env->mlx)

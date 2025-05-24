@@ -6,23 +6,23 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/05/24 11:31:56 by msloot           ###   ########.fr        #
+#    Updated: 2025/05/24 17:35:47 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	miniRT
 CC = 	cc
-AR =	ar rcs
 RM = 	rm -rf
 
 CFLAGS =	-Wall -Werror -Wextra
 CFLAGS +=	-g
 # CFLAGS +=	-fsanitize=address
 
-UNAME = $(shell uname)
+ASMFLAGS =	-MMD -MP
+ASMINC =	-I./inc/
 
-LDFLAGS	=	-lXext -lX11 -lm
-# LDFLAGS		=	-Lmlx -lmlx -L/usr/lib $(MLXINC) -lXext -lX11 -lm -lz
+# LDFLAGS =
+LDLIBS =	-lXext -lX11 -lm
 
 # **************************************************************************** #
 #	MAKEFILE	#
@@ -32,6 +32,8 @@ MAKEFLAGS += --silent
 SHELL := bash
 
 B =		$(shell tput bold)
+I =		$(shell tput sitm)
+
 BLA =	$(shell tput setaf 0)
 RED =	$(shell tput setaf 1)
 GRE =	$(shell tput setaf 2)
@@ -40,98 +42,106 @@ BLU =	$(shell tput setaf 4)
 MAG =	$(shell tput setaf 5)
 CYA =	$(shell tput setaf 6)
 WHI =	$(shell tput setaf 7)
+
 D =		$(shell tput sgr0)
-BEL =	$(shell tput bel)
 CLR =	$(shell tput el 1)
 
+PRIMARY =	$(shell tput setaf 13)
+SECONDARY =	$(GRE)
+
+PROGRESS_START =	$(PRIMARY)▐
+PROGRESS_END =		$(PRIMARY)▌
+# PROGRESS_EMPTY =	-
+PROGRESS_FILL =		$(SECONDARY)█
+
 # **************************************************************************** #
-#	 LIB	#
+#	LIBRARY	#
 
-LIBPATH =	./libft/
-LIBNAME =	$(LIBPATH)libft.a
-LIBINC =	-I$(LIBPATH)
+LIBFT_PATH =	./libft/
+MLX_PATH =		./mlx/
 
-MLXPATH =	./mlx/
-MLXNAME =	$(MLXPATH)libmlx.a
-MLXINC =	-I$(MLXPATH)
+LOCAL_LIB =		$(LIBFT_PATH)libft.a $(MLX_PATH)libmlx.a
+ASMINC +=		-I$(LIBFT_PATH)inc/ -I$(MLX_PATH)inc/
+
+LOCAL_LIB_PATH =	$(sort $(dir $(LOCAL_LIB)))
 
 # **************************************************************************** #
 #	SOURCE	#
 
 SRC_PATH =	./src/
 OBJ_PATH =	./obj/
-INC =		./inc/
 
 SRC_NAME =	main.c \
 			init.c \
-			parse/parse.c parse/camera.c \
+			parse/parse.c parse/parse_objects.c parse/preparse_objects.c \
+			parse/resolution.c parse/camera.c \
+			parse/puterr.c \
 			close_win.c create_window.c hook.c handle_keycode.c \
 			render.c \
+			puterr.c \
 			free.c
 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
-# SRC =		$(wildcard $(SRC_PATH)*.c) $(wildcard $(SRC_PATH)**/*.c)
-# SRC_NAME =	$(subst $(SRC_PATH), , $(SRC))
-
-OBJ_NAME =	$(SRC_NAME:.c=.o)
-OBJ =		$(addprefix $(OBJ_PATH), $(OBJ_NAME))
+OBJ_NAME = $(SRC_NAME:.c=.o)
+OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
 # *************************************************************************** #
 
 define	progress_bar
-	i=0
-	while [[ $$i -le $(words $(SRC)) ]] ; do \
+	@printf "$(PROGRESS_START)$(D)"
+	@i=0
+	@while [[ $$i -lt $(words $(SRC)) ]] ; do \
 		printf " " ; \
 		((i = i + 1)) ; \
 	done
-	printf "$(B)]\r[$(GRE)"
+	@printf "$(D)$(PROGRESS_END)$(D)\r$(PROGRESS_START)$(D)"
 endef
+
+name = 0
 
 # *************************************************************************** #
 #	RULES	#
 
-ifeq ($(UNAME), Linux)
-all:		launch $(NAME)
-	@printf "\n$(B)$(MAG)$(NAME) compiled$(D)\n"
-else
-all:
-	@echo "$(B)$(RED)Error: Only Linux supported.$(D)"
-endif
+all:	$(LOCAL_LIB) launch $(NAME)
+	@if [ $(name) -ne 0 ]; then \
+		printf "\n$(B)$(PRIMARY)─╴$(NAME) compiled$(D)\n"; \
+	else \
+		printf "\n$(B)$(PRIMARY)─╴$(D)$(B)$(I)nothing to do$(D)\n"; \
+	fi
 
 launch:
 	$(call progress_bar)
 
-$(NAME):	$(OBJ) $(LIBNAME) $(MLXNAME)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBNAME) $(MLXNAME) $(LDFLAGS) -o $(NAME)
+$(NAME):	$(LOCAL_LIB) $(OBJ)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) $(LOCAL_LIB) $(LDLIBS) -o $(NAME)
+	@$(eval name=1)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@mkdir -p $(dir $@) # 2> /dev/null || true
-	$(CC) $(CFLAGS) $(MLXINC) $(LIBINC) -I$(INC) -c $< -o $@
-	@printf "█"
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(ASMFLAGS) $(ASMINC) -c $< -o $@
+	@printf "$(D)$(PROGRESS_FILL)$(D)"
 
-$(LIBNAME):
-	@printf "$(D)$(B)$(BLU)\n$(NAME) objects compiled\n\n$(D)"
-	@$(MAKE) -C $(LIBPATH) CFLAGS+=-DWITH_OPEN=1
+$(LOCAL_LIB):
+	@$(MAKE) -C $(dir $@)
 
-$(MLXNAME):
-	@$(MAKE) -C $(MLXPATH) > /dev/null 2>&1 || true
-	@printf "$(B)$(CYA)$(MLXNAME) compiled\n$(D)"
-
-clean:
-	@$(RM) $(OBJ_NAME)
-	@$(MAKE) clean -C $(LIBPATH)
-	@$(MAKE) clean -C $(MLXPATH) > /dev/null 2>&1 || true
+clean:	$(addsuffix .clean, $(LOCAL_LIB_PATH))
+	@$(RM) $(OBJ_PATH) $(TEST_OBJ_PATH)
 	@echo "$(B)cleared$(D)"
 
+%.clean:
+	@$(MAKE) clean -C $*
 
-fclean:		clean
-	@$(RM) $(OBJ_PATH)
-	@$(RM) $(NAME)
-	@$(MAKE) fclean -C $(LIBPATH)
+fclean:		clean $(addsuffix .fclean, $(LOCAL_LIB_PATH))
+	@$(RM) $(NAME) $(TEST_NAME)
+
+%.fclean:
+	@$(MAKE) fclean -C $*
 
 re:			fclean all
 
-.PHONY: all clean fclean re
+-include $(OBJ:.o=.d)
+
+.PHONY: all clean fclean re launch
 
 # **************************************************************************** #
