@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:56:09 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/24 21:08:27 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/27 22:33:14 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ size_t		ft_umin(size_t a, size_t b);
 ssize_t		ft_min(ssize_t a, ssize_t b);
 size_t		ft_umax(size_t a, size_t b);
 ssize_t		ft_max(ssize_t a, ssize_t b);
+ssize_t		ft_pow(ssize_t	x, size_t y);
+float		ft_powf(float x, size_t y);
 size_t		ft_nbrlen_base(ssize_t n, size_t base);
 size_t		ft_unbrlen_base(size_t n, size_t base);
 size_t		ft_nbrlen(ssize_t n);

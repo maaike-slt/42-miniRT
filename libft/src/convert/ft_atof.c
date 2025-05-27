@@ -6,24 +6,38 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 20:43:53 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/24 21:25:45 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/27 22:47:08 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 #include "unistd.h"
 
+float	handle_dec(const char *nptr, size_t i, float nb)
+{
+	size_t	pow_cnt;
+
+	if (nptr[i] == '.')
+		i++;
+	pow_cnt = 1;
+	while (nptr[i] != '\0' && ft_isdigit(nptr[i]))
+	{
+		nb += (nptr[i] - '0') / ft_powf(10, pow_cnt);
+		i++;
+		pow_cnt++;
+	}
+	return (nb);
+}
+
 float	ft_atof(const char *nptr)
 {
 	size_t	i;
 	float	sign;
 	float	nb;
-	float	c_nb;
 
 	i = 0;
 	sign = 1;
 	nb = 0;
-	c_nb = 0;
 	while (ft_isspace(nptr[i]))
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
@@ -38,19 +52,10 @@ float	ft_atof(const char *nptr)
 		nb += nptr[i] - '0';
 		i++;
 	}
-	i++;
-	if (nptr[i] == '.')
-	{
-		while (nptr[i] != '\0' && ft_isdigit(nptr[i]))
-		{
-			c_nb /= 10;
-			c_nb += nptr[i] - '0';
-			i++;
-		}
-	}
-	return (sign * (nb + c_nb));
+	return (sign * handle_dec(nptr, i, nb));
 }
 
+/*
 #include <stdio.h>
 
 static void	test(const char *str)
@@ -90,3 +95,4 @@ int	main(void)
 	test(".42");
 	test("42.21.81");
 }
+*/
