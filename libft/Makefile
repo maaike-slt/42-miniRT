@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/21 17:15:16 by msloot            #+#    #+#              #
-#    Updated: 2025/05/27 22:18:20 by msloot           ###   ########.fr        #
+#    Updated: 2025/05/27 22:53:02 by msloot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,7 @@ SRC_NAME = \
 	convert/ft_atoi.c convert/ft_aton.c convert/ft_atoun.c convert/ft_atoi_digits_only.c  convert/ft_itoa.c \
 	convert/ft_ntoa_base.c convert/ft_ntoa.c \
 	convert/ft_untoa_base.c convert/ft_untoa.c \
-	convert/ft_atof.c \
+	convert/ft_atof.c convert/ft_atod.c \
 	convert/ft_nbr_convert_base.c convert/ft_nbr_convert.c \
 	convert/ft_unbr_convert_base.c convert/ft_unbr_convert.c \
 	convert/ft_check_base.c \

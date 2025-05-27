@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:56:09 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/27 22:33:14 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/27 22:53:32 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int			ft_atoi(const char *nptr);
 ssize_t		ft_aton(const char *nptr);
 size_t		ft_atoun(const char *nptr);
 float		ft_atof(const char *nptr);
+double		ft_atod(const char *nptr);
 int			ft_atoi_digits_only(const char *nptr);
 char		*ft_itoa(int n);
 
