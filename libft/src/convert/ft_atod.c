@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 22:51:49 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/27 22:53:59 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/28 21:35:56 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ double	handle_dec(const char *nptr, size_t i, double nb)
 	return (nb);
 }
 
-double	ft_atof(const char *nptr)
+double	ft_atod(const char *nptr)
 {
 	size_t	i;
 	double	sign;
