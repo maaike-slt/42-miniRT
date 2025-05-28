@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 20:47:09 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/28 23:07:21 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,6 @@
 
 # define MAX_RESOLUTION	65535
 
-typedef struct s_pix
-{
-	char	r;
-	char	g;
-	char	b;
-	char	a;
-}	t_pix;
-
 typedef struct s_img
 {
 	void	*ptr;
@@ -59,7 +51,7 @@ typedef struct s_scene
 	size_t			tr_amt;
 	// t_plane			*pl;
 	size_t			pl_amt;
-	// t_sphere			*sp;
+	t_sphere			*sp;
 	size_t			sp_amt;
 	// t_cylinder		*cy;
 	size_t			cy_amt;
