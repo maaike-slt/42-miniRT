@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 21:56:02 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/28 22:36:35 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/28 23:02:40 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ bool	parse_sphere(t_env *env, const t_line_arg *la)
 		return (puterr_invalid_token_amount(\
 la, 4, "<pos in x,y,z> <diameter> <color in r,g,b>"), false);
 	sp = &(env->scene.sp[env->scene.sp_amt]);
-	if (!parse_vec3(la->split[1], &(sp->pos)))
+	if (!parse_vec3(la, la->split[1], &(sp->pos)))
 		return (false);
 	sp->d = ft_atof(la->split[2]);
 	if (sp->d <= 0)
 		return (puterr_invalid_float(la, la->split[2], 0, LONG_LONG_MAX), false);
-	// if (!parse_vec3(la->split[3], &tmp))
+	// if (!parse_vec3(la, la->split[3], &tmp))
 	// 	return (false);
 	// sp->color.r = tmp.x;
 	// sp->color.g = tmp.y;
