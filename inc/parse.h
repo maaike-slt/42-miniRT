@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:53:58 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/28 21:33:32 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/28 22:28:01 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	puterr_invalid_type_identifier(
 			const char *identifier);
 void	puterr_invalid_token_amount(
 			const t_line_arg *la,
-			const char *identifier,
 			size_t expected,
 			const char *line_help);
 void	puterr_invalid_int(

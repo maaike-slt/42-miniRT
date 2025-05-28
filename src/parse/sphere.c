@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 21:56:02 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/28 22:20:46 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/28 22:28:13 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool	parse_sphere(t_env *env, const t_line_arg *la)
 
 	if (la->split_size != 4)
 		return (puterr_invalid_token_amount(\
-la, "sp", 4, "sp <pos in x,y,z> <diameter> <color in r,g,b>"), false);
+la, 4, "<pos in x,y,z> <diameter> <color in r,g,b>"), false);
 	sp = &(env->scene.sp[env->scene.sp_amt]);
 	if (!parse_vec3(la->split[1], &(sp->pos)))
 		return (false);
