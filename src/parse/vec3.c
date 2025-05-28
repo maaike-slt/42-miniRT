@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 21:22:11 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/28 21:32:40 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/28 21:53:42 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ bool	parse_vec3(const char *str, t_vec3 *vec3)
 		return (false);
 	len = ft_2d_size((const void **)split);
 	if (len != 3)
-		return (false); // TODO: @adelille put error message
+		return (ft_2d_free((void ***)&split, len), false); // TODO: @adelille put error message
 	vec3->x = ft_atof(split[0]);
 	vec3->y = ft_atof(split[1]);
 	vec3->z = ft_atof(split[2]);
+	ft_2d_free((void ***)&split, len);
 	return (true);
 }

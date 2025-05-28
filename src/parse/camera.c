@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:30:43 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/27 22:54:45 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/28 21:51:23 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,13 @@ bool	parse_camera(t_env *env, const t_line_arg *la)
 		return (puterr_invalid_token_amount(\
 la, "C", 4, "C <pos in x,y,z> <rot in x,y,z> <fov>"), false);
 	c = &(env->scene.c[env->scene.c_amt]);
-	(void)c;
-	// TODO: @msloot create parse_vec()
-	// c->pos = parse_vec3(la->split[1]);
-	// c->rot = parse_vec3(la->split[2]);
-	// c->fov = atof(la->split[3]);
+	if (!parse_vec3(la->split[1], &(c->pos)))
+		return (false);
+	if (!parse_vec3(la->split[2], &(c->rot)))
+		return (false);
+	c->fov = ft_atof(la->split[3]);
+	if (c->fov <= 0 || c->fov > 180)
+		return (false); // TODO: @adelille put error message
 	env->scene.c_amt++;
 	return (true);
 }
