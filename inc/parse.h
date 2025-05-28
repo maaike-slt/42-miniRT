@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:53:58 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 18:01:36 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/28 21:33:32 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct s_line_arg
 
 bool	preparse_objects(t_env *env, int fd);
 bool	parse_objects(t_env *env, int fd);
+
+bool	parse_vec3(const char *str, t_vec3 *vec3);
 
 bool	parse_camera(t_env *env, const t_line_arg *la);
 bool	parse_resolution(t_env *env, const t_line_arg *la);

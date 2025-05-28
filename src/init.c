@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:48:59 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 18:05:57 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/28 21:34:51 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,27 +71,27 @@ bool	init_objects(t_env *env)
 	env->scene.c = (t_camera *)malloc(sizeof(t_camera) * env->scene.c_amt);
 	if (!env->scene.c)
 		return (false);
-//	env->scene.a = \
+//	env->scene.a =
 //(t_ambient_light *)malloc(sizeof(t_ambient_light) * env->scene.a_amt);
 //	if (!env->scene.a)
 //		return (false);
-//	env->scene.l = \
+//	env->scene.l =
 //(t_light *)malloc(sizeof(t_light) * env->scene.l_amt);
 //	if (!env->scene.l)
 //		return (false);
-//	env->scene.tr = \
+//	env->scene.tr =
 //(t_triangle *)malloc(sizeof(t_triangle) * env->scene.tr_amt);
 //	if (!env->scene.tr)
 //		return (false);
-//	env->scene.pl = \
+//	env->scene.pl =
 //(t_plane *)malloc(sizeof(t_plane) * env->scene.pl_amt);
 //	if (!env->scene.pl)
 //		return (false);
-//	env->scene.sp = \
+//	env->scene.sp =
 //(t_sphere *)malloc(sizeof(t_sphere) * env->scene.sp_amt);
 //	if (!env->scene.sp)
 //		return (false);
-//	env->scene.cy = \
+//	env->scene.cy =
 //(t_cylinder *)malloc(sizeof(t_cylinder) * env->scene.cy_amt);
 //	if (!env->scene.cy)
 //		return (false);

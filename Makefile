@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/05/24 17:35:47 by adelille         ###   ########.fr        #
+#    Updated: 2025/05/28 21:34:14 by msloot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,7 @@ OBJ_PATH =	./obj/
 SRC_NAME =	main.c \
 			init.c \
 			parse/parse.c parse/parse_objects.c parse/preparse_objects.c \
+			parse/vec3.c \
 			parse/resolution.c parse/camera.c \
 			parse/puterr.c \
 			close_win.c create_window.c hook.c handle_keycode.c \
