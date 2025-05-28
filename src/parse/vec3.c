@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 21:22:11 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/28 23:02:01 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/28 23:06:26 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ bool	parse_vec3(const t_line_arg *la, const char *str, t_vec3 *vec3)
 		return (false);
 	}
 	if (!parse_float(la, split[0], &(vec3->x))
-			|| !parse_float(la, split[1], &(vec3->y))
-			|| !parse_float(la, split[2], &(vec3->z)))
+		|| !parse_float(la, split[1], &(vec3->y))
+		|| !parse_float(la, split[2], &(vec3->z)))
 		return (ft_2d_free((void ***)&split, len), false);
 	ft_2d_free((void ***)&split, len);
 	return (true);
