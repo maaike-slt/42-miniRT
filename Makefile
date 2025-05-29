@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/05/29 19:05:13 by adelille         ###   ########.fr        #
+#    Updated: 2025/05/29 22:30:30 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,9 +79,11 @@ SRC_NAME =	main.c \
 			parse/puterr/line.c parse/puterr/identifier.c \
 			parse/puterr/token_amount.c \
 			parse/puterr/number.c parse/puterr/float.c \
-			vec3_math/sub.c vec3_math/dot.c vec3_math/magnitude.c vec3_math/normalize.c \
+			vec3_math/sub.c vec3_math/dot.c vec3_math/cross.c \
+			vec3_math/magnitude.c vec3_math/normalize.c \
 			window/create.c window/close.c window/hook.c window/handle_keycode.c \
 			render/render.c render/init.c render/set_pixel.c \
+			render/pov_matrix.c render/ray_direction.c \
 			render/intersect/sphere.c \
 			puterr.c \
 			free.c

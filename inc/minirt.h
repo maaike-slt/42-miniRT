@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/29 21:09:19 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/29 22:33:02 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,25 @@ typedef struct s_scene
 	size_t			cy_amt;
 }	t_scene;
 
+typedef struct s_pov_matrix
+{
+	t_vec3	right;
+	t_vec3	up;
+	t_vec3	forward;
+}	t_pov_matrix;
+
+typedef struct s_render_data
+{
+	float			aspect_ratio;
+	size_t			pov_index;
+	t_camera		*c;
+	t_img			*pov;
+	float			viewport_w;
+	float			viewport_h;
+	t_pov_matrix	pov_matrix;
+	t_vec3			ray_dir;
+}	t_render_data;
+
 typedef struct s_win
 {
 	void	*ptr;
@@ -66,10 +85,11 @@ typedef struct s_win
 
 typedef struct s_env
 {
-	void	*mlx;
-	t_win	win;
-	t_scene	scene;
-	t_img	*pov;
+	void			*mlx;
+	t_win			win;
+	t_scene			scene;
+	t_img			*pov;
+	t_render_data	rd;
 }	t_env;
 
 enum	e_event
@@ -99,31 +119,39 @@ enum	e_keypress_linux
 	K_D = 100,
 };
 
-bool	init(t_env *env);
-bool	init_objects(t_env *env);
-bool	init_pov(t_env *env);
+bool			init(t_env *env);
+bool			init_objects(t_env *env);
+bool			init_pov(t_env *env);
 
-bool	parse(t_env *env, const char *file);
+bool			parse(t_env *env, const char *file);
 
-t_vec3	vec3_sub(t_vec3 a, t_vec3 b);
-float	vec3_dot(t_vec3 a, t_vec3 b);
-float	vec3_magnitude(t_vec3 v);
-t_vec3	vec3_normalize(t_vec3 v);
+int				close_win(t_env *env);
+bool			create_window(t_env *env);
+void			set_hook(t_env *env);
+int				handle_keycode(int keycode, t_env *env);
 
-int		close_win(t_env *env);
-bool	create_window(t_env *env);
-void	set_hook(t_env *env);
-int		handle_keycode(int keycode, t_env *env);
+void			render(t_env *env);
 
-bool	render(t_env *env);
-void	init_render(t_env *env);
-void	set_pixel(t_img *img, t_color color, size_t index);
+void			init_render(t_env *env);
+void			init_render_pov(t_env *env);
+void			init_render_pixel(t_env *env, size_t x, size_t y);
 
-float	intersect_sphere(t_vec3 ray_ori, t_vec3 ray_dir, t_sphere sp);
+void			set_pixel(t_img *img, t_color color, size_t index);
 
-int		free_env(t_env *env);
+t_vec3			vec3_sub(t_vec3 a, t_vec3 b);
+float			vec3_dot(t_vec3 a, t_vec3 b);
+t_vec3			vec3_cross(t_vec3 a, t_vec3 b);
+float			vec3_magnitude(t_vec3 v);
+t_vec3			vec3_normalize(t_vec3 v);
 
-void	puterr(void);
-void	puterr_argc(void);
+t_pov_matrix	pov_matrix(const t_camera *c);
+t_vec3			calc_ray_direction(t_env *env, size_t x, size_t y);
+
+float			intersect_sphere(t_vec3 ray_ori, t_vec3 ray_dir, t_sphere sp);
+
+int				free_env(t_env *env);
+
+void			puterr(void);
+void			puterr_argc(void);
 
 #endif
