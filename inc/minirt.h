@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/28 23:07:21 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/29 18:33:36 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ bool	init_pov(t_env *env);
 
 bool	parse(t_env *env, const char *file);
 
-
 t_vec3	vec3_sub(t_vec3 a, t_vec3 b);
 float	vec3_dot(t_vec3 a, t_vec3 b);
 float	vec3_magnitude(t_vec3 v);
@@ -117,6 +116,8 @@ void	set_hook(t_env *env);
 int		handle_keycode(int keycode, t_env *env);
 
 bool	render(t_env *env);
+void	init_render(t_env *env);
+void	set_pixel(t_img *img, t_color color, size_t index);
 
 int		free_env(t_env *env);
 
