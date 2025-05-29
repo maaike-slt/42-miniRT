@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:12:54 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/29 22:27:49 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/29 22:49:09 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ static bool	parse_color_bit(
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			return (puterr_invalid_int(la, str, 1, MAX_RESOLUTION), false); // TODO: @adelille handle error
+			return (puterr_invalid_int(la, str, 0, UCHAR_MAX), false);
 		i++;
 	}
 	if (i > 3)
-		return (puterr_invalid_int(la, str, 1, MAX_RESOLUTION), false); // TODO: @adelille handle error
+		return (puterr_invalid_int(la, str, 0, UCHAR_MAX), false);
 	*color = ft_atoun(str);
-	if (i == 0 || i > UCHAR_MAX)
-		return (puterr_invalid_int(la, str, 1, MAX_RESOLUTION), false); // TODO: @adelille handle error
+	if (*color > UCHAR_MAX)
+		return (puterr_invalid_int(la, str, 0, UCHAR_MAX), false);
 	return (true);
 }
 
