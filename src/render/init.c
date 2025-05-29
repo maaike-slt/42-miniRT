@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sub.c                                              :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 20:29:23 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 20:36:01 by adelille         ###   ########.fr       */
+/*   Created: 2025/05/29 18:19:30 by adelille          #+#    #+#             */
+/*   Updated: 2025/05/29 18:44:11 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-inline t_vec3	vec3_sub(t_vec3 a, t_vec3 b)
+void	init_render(t_env *env)
 {
-	return ((t_vec3){
-		.x = a.x - b.x,
-		.y = a.y - b.y,
-		.z = a.z - b.z
-	});
+	(void)env;
 }

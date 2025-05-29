@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sub.c                                              :+:      :+:    :+:   */
+/*   magnitude.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 20:29:23 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 20:36:01 by adelille         ###   ########.fr       */
+/*   Created: 2025/05/24 20:41:15 by adelille          #+#    #+#             */
+/*   Updated: 2025/05/24 20:46:29 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-inline t_vec3	vec3_sub(t_vec3 a, t_vec3 b)
+inline float	vec3_magnitude(t_vec3 v)
 {
-	return ((t_vec3){
-		.x = a.x - b.x,
-		.y = a.y - b.y,
-		.z = a.z - b.z
-	});
+	return (sqrtf(vec3_dot(v, v)));
 }

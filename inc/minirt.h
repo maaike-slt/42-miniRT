@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/28 22:12:57 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/29 19:02:46 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 
 # define WITH_OPEN
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <fcntl.h>
+# include <math.h>
 # include <errno.h>
 # include <string.h>
 
@@ -107,12 +105,21 @@ bool	init_pov(t_env *env);
 
 bool	parse(t_env *env, const char *file);
 
+t_vec3	vec3_sub(t_vec3 a, t_vec3 b);
+float	vec3_dot(t_vec3 a, t_vec3 b);
+float	vec3_magnitude(t_vec3 v);
+t_vec3	vec3_normalize(t_vec3 v);
+
 int		close_win(t_env *env);
 bool	create_window(t_env *env);
 void	set_hook(t_env *env);
 int		handle_keycode(int keycode, t_env *env);
 
 bool	render(t_env *env);
+void	init_render(t_env *env);
+void	set_pixel(t_img *img, t_color color, size_t index);
+
+float	intersect_sphere(t_vec3 ray_ori, t_vec3 ray_dir, t_sphere sp);
 
 int		free_env(t_env *env);
 

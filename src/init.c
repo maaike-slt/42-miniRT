@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:48:59 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/28 22:12:10 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/29 18:43:55 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,25 @@ bool	init(t_env *env)
 	return (true);
 }
 
+static void	init_pov_pixel(t_env *env, t_img *pov)
+{
+	t_color	color;
+	size_t	pov_size;
+	size_t	pix_i;
+
+	color.r = 0x00;
+	color.g = 0x00;
+	color.b = 0x00;
+	color.a = 0xff;
+	pov_size = env->win.w * env->win.h;
+	pix_i = 0;
+	while (pix_i < pov_size)
+	{
+		set_pixel(pov, color, pix_i);
+		pix_i++;
+	}
+}
+
 bool	init_pov(t_env *env)
 {
 	size_t	i;
@@ -61,6 +80,7 @@ bool	init_pov(t_env *env)
 				&(env->pov[i].bpp),
 				&(env->pov[i].size_line),
 				&(env->pov[i].endian));
+		init_pov_pixel(env, &(env->pov[i]));
 		i++;
 	}
 	return (true);
