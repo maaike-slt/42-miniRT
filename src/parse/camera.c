@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:30:43 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/28 23:02:55 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/29 20:39:30 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ la, 4, "<pos in x,y,z> <rot in x,y,z> <fov>"), false);
 	if (!parse_vec3(la, la->split[2], &(c->rot)))
 		return (false);
 	c->fov = ft_atof(la->split[3]);
-	if (c->fov <= 0 || c->fov > 180)
+	if (c->fov <= 0 || c->fov >= 180)
 		return (puterr_invalid_float(la, la->split[3], 0, 180), false);
 	env->scene.c_amt++;
 	return (true);
