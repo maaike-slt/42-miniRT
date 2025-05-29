@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:56:12 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/28 22:18:51 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/29 21:09:43 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,5 @@ typedef struct s_sphere
 	float	d;
 	t_color	color;
 }	t_sphere;
-
 
 #endif
