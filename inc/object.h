@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:56:12 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/29 21:09:43 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:32:30 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ typedef struct s_vec3
 	float	z;
 }	t_vec3;
 
+typedef u_int8_t	t_color_bit;
+
 typedef struct s_color
 {
-	char	r;
-	char	g;
-	char	b;
-	char	a;
+	t_color_bit	r;
+	t_color_bit	g;
+	t_color_bit	b;
+	t_color_bit	a;
 }	t_color;
 
 typedef struct s_camera
