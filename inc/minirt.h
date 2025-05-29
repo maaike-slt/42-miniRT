@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/29 18:33:36 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/29 19:02:46 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,8 @@ int		handle_keycode(int keycode, t_env *env);
 bool	render(t_env *env);
 void	init_render(t_env *env);
 void	set_pixel(t_img *img, t_color color, size_t index);
+
+float	intersect_sphere(t_vec3 ray_ori, t_vec3 ray_dir, t_sphere sp);
 
 int		free_env(t_env *env);
 
