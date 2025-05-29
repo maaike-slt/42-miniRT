@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:12:54 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/29 22:49:09 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/29 22:52:42 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool	parse_color(const t_line_arg *la, const char *str, t_color *color)
 	{
 		ft_2d_free((void ***)&split, len);
 		puterr_invalid_sub_token_amount(
-			la, str, (t_expected_got){3, len}, "<x,y,z>");
+			la, str, (t_expected_got){3, len}, "<r,g,b>");
 		return (false);
 	}
 	if (!parse_color_bit(la, split[0], &(color->r))
