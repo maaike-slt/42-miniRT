@@ -6,14 +6,14 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 22:37:29 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/28 23:00:40 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:10:33 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "parse.h"
 
-static void puterr_line_help(
+static void	puterr_line_help(
 	const char *identifier,
 	const char *line_help)
 {
