@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-float	handle_dec(const char *nptr, size_t i, float nb)
+static float	handle_dec(const char *nptr, size_t i, float nb)
 {
 	size_t	pow_cnt;
 
