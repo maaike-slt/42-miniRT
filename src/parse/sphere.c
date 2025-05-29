@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 21:56:02 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/29 21:16:32 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/29 22:21:11 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ la, 4, "<pos in x,y,z> <diameter> <color in r,g,b>"), false);
 	if (sp->d <= 0)
 		return (\
 puterr_invalid_float_positive_non_null(la, la->split[2]), false);
-	// if (!parse_vec3(la, la->split[3], &tmp))
-	// 	return (false);
+	if (!parse_color(la, la->split[3], &tmp))
+		return (false);
 	// sp->color.r = tmp.x;
 	// sp->color.g = tmp.y;
 	// sp->color.b = tmp.z;

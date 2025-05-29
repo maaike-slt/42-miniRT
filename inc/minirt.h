@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/29 21:09:19 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:33:30 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@
 
 typedef struct s_img
 {
-	void	*ptr;
-	char	*buf;
-	int		bpp;
-	int		size_line;
-	int		endian;
+	void		*ptr;
+	t_color_bit	*buf;
+	int			bpp;
+	int			size_line;
+	int			endian;
 }	t_img;
 
 typedef struct s_scene
