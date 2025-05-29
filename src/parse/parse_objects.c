@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_objects.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:11:31 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 18:03:53 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/29 22:38:08 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static bool	parse_line_arg(t_env *env, const t_line_arg *la)
 		return (parse_resolution(env, la));
 	if (ft_strcmp(la->split[0], "C") == 0 || ft_strcmp(la->split[0], "c") == 0)
 		return (parse_camera(env, la));
+	if (ft_strcmp(la->split[0], "sp") == 0)
+		return (parse_sphere(env, la));
 	// if ...
 	return (true);
 }

@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/05/29 21:24:54 by msloot           ###   ########.fr        #
+#    Updated: 2025/05/29 22:36:39 by msloot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,7 @@ OBJ_PATH =	./obj/
 SRC_NAME =	main.c \
 			init.c \
 			parse/parse.c parse/parse_objects.c parse/preparse_objects.c \
-			parse/vec3.c \
+			parse/vec3.c parse/sphere.c \
 			parse/resolution.c parse/camera.c parse/color.c \
 			parse/puterr/line.c parse/puterr/identifier.c \
 			parse/puterr/token_amount.c \

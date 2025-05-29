@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:53:58 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/29 22:20:41 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/29 22:37:10 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ bool	parse_objects(t_env *env, int fd);
 bool	parse_vec3(const t_line_arg *la, const char *str, t_vec3 *vec3);
 
 bool	parse_camera(t_env *env, const t_line_arg *la);
+bool	parse_sphere(t_env *env, const t_line_arg *la);
 bool	parse_resolution(t_env *env, const t_line_arg *la);
 bool	parse_color(const t_line_arg *la, const char *str, t_color *color);
 
