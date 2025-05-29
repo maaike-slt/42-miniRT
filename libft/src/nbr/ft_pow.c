@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_2d_push.c                                       :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 21:22:03 by msloot            #+#    #+#             */
-/*   Updated: 2024/12/08 20:52:56 by adelille         ###   ########.fr       */
+/*   Created: 2025/05/27 22:04:13 by msloot            #+#    #+#             */
+/*   Updated: 2025/05/27 22:32:54 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	**ft_2d_push(void ***ptr, void *val)
+ssize_t	ft_pow(ssize_t	x, size_t y)
 {
-	size_t	size;
-	size_t	i;
-	void	**new;
+	ssize_t	n;
 
-	size = ft_2d_size((const void **)*ptr);
-	new = (void **)malloc(sizeof(void *) * (size + 2));
-	if (!new)
-		return (NULL);
-	i = 0;
-	while (i < size)
+	if (y == 0)
+		return (1);
+	n = x;
+	while (y > 1)
 	{
-		new[i] = (*ptr)[i];
-		i++;
+		n *= x;
+		y--;
 	}
-	new[i] = val;
-	new[i + 1] = NULL;
-	free(*ptr);
-	*ptr = new;
-	return (new);
+	return (n);
+}
+
+float	ft_powf(float x, size_t y)
+{
+	float	n;
+
+	if (y == 0)
+		return (1);
+	n = x;
+	while (y > 1)
+	{
+		n *= x;
+		y--;
+	}
+	return (n);
 }

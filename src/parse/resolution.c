@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 17:12:09 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 18:04:43 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/28 22:28:45 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ bool	parse_resolution(t_env *env, const t_line_arg *la)
 {
 	if (la->split_size != 3)
 		return (\
-puterr_invalid_token_amount(la, "R", 3, "R <width> <height>"), false);
+puterr_invalid_token_amount(la, 3, "<width> <height>"), false);
 	env->win.w = parse_int(la->split[1], la);
 	env->win.h = parse_int(la->split[2], la);
 	if (env->win.w == 0 || env->win.h == 0)

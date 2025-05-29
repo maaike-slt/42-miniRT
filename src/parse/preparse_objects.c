@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:26:02 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/24 18:04:31 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/28 23:05:56 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ static bool	count_object(t_env *env, const char *line, size_t line_index)
 static void	reset_scene_amt(t_env *env)
 {
 	env->scene.c_amt = 0;
-//	env->scene.a_amt = 0;
-//	env->scene.l_amt = 0;
-//	env->scene.tr_amt = 0;
-//	env->scene.pl_amt = 0;
-//	env->scene.sp_amt = 0;
-//	env->scene.cy_amt = 0;
+	env->scene.a_amt = 0;
+	env->scene.l_amt = 0;
+	env->scene.tr_amt = 0;
+	env->scene.pl_amt = 0;
+	env->scene.sp_amt = 0;
+	env->scene.cy_amt = 0;
 }
 
 bool	preparse_objects(t_env *env, int fd)

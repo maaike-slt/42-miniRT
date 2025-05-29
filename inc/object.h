@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:56:12 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/24 20:30:52 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/28 22:18:51 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,27 @@ typedef struct s_vec3
 	float	z;
 }	t_vec3;
 
+typedef struct s_color
+{
+	char	r;
+	char	g;
+	char	b;
+	char	a;
+}	t_color;
+
 typedef struct s_camera
 {
 	t_vec3	pos;
 	t_vec3	rot;
 	float	fov;
 }	t_camera;
+
+typedef struct s_sphere
+{
+	t_vec3	pos;
+	float	d;
+	t_color	color;
+}	t_sphere;
+
 
 #endif
