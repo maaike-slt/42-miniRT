@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:48:59 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/29 18:43:55 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/29 22:40:32 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ static void	init_scene(t_scene *scene)
 	scene->c = NULL;
 	scene->c_amt = 0;
 //	scene->a = NULL;
-//	scene->a_amt = 0;
+	scene->a_amt = 0;
 //	scene->l = NULL;
-//	scene->l_amt = 0;
+	scene->l_amt = 0;
 //	scene->tr = NULL;
-//	scene->tr_amt = 0;
+	scene->tr_amt = 0;
 //	scene->pl = NULL;
-//	scene->pl_amt = 0;
-//	scene->sp = NULL;
-//	scene->sp_amt = 0;
+	scene->pl_amt = 0;
+	scene->sp = NULL;
+	scene->sp_amt = 0;
 //	scene->cy = NULL;
-//	scene->cy_amt = 0;
+	scene->cy_amt = 0;
 }
 
 bool	init(t_env *env)
@@ -76,7 +76,7 @@ bool	init_pov(t_env *env)
 		env->pov[i].ptr = mlx_new_image(env->mlx, env->win.w, env->win.h);
 		if (!env->pov[i].ptr)
 			return (false);
-		env->pov[i].buf = mlx_get_data_addr(env->pov[i].ptr,
+		env->pov[i].buf = (t_color_bit *)mlx_get_data_addr(env->pov[i].ptr,
 				&(env->pov[i].bpp),
 				&(env->pov[i].size_line),
 				&(env->pov[i].endian));
