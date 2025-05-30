@@ -22,7 +22,7 @@ A 0.2 255,255,255
 
 bool	parse_ambient_lighting(t_env *env, const t_line_arg *la)
 {
-	t_ambient	*al;
+	t_ambient	*a;
 
 	if (la->split_size != 3)
 		return (puterr_invalid_token_amount(\
