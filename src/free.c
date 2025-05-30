@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:43:32 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/28 22:12:43 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/30 22:35:25 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ static void	free_scene(t_env *env)
 {
 	if (env->scene.c)
 		free(env->scene.c);
-//	if (env->scene.a)
-//		free(env->scene.a);
-//	if (env->scene.l)
-//		free(env->scene.l);
+	if (env->scene.l)
+		free(env->scene.l);
 //	if (env->scene.tr)
 //		free(env->scene.tr);
 //	if (env->scene.pl)

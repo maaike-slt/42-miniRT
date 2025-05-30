@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:48:59 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/30 23:46:56 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 23:51:25 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	init_scene(t_scene *scene)
 	scene->a.lighting_ratio = 0.2f;
 	scene->c = NULL;
 	scene->c_amt = 0;
-//	scene->l = NULL;
+	scene->l = NULL;
 	scene->l_amt = 0;
 //	scene->tr = NULL;
 	scene->tr_amt = 0;
@@ -94,20 +94,14 @@ bool	init_objects(t_env *env)
 	env->scene.c = (t_camera *)malloc(sizeof(t_camera) * env->scene.c_amt);
 	if (!env->scene.c)
 		return (false);
-//	env->scene.a =
-//(t_ambient_light *)malloc(sizeof(t_ambient_light) * env->scene.a_amt);
-//	if (!env->scene.a)
-//		return (false);
-//	env->scene.l =
-//(t_light *)malloc(sizeof(t_light) * env->scene.l_amt);
-//	if (!env->scene.l)
-//		return (false);
+	env->scene.l = (t_light *)malloc(sizeof(t_light) * env->scene.l_amt);
+	if (!env->scene.l)
+		return (false);
 //	env->scene.tr =
-//(t_triangle *)malloc(sizeof(t_triangle) * env->scene.tr_amt);
+// (t_triangle *)malloc(sizeof(t_triangle) * env->scene.tr_amt);
 //	if (!env->scene.tr)
 //		return (false);
-//	env->scene.pl =
-//(t_plane *)malloc(sizeof(t_plane) * env->scene.pl_amt);
+//	env->scene.pl = (t_plane *)malloc(sizeof(t_plane) * env->scene.pl_amt);
 //	if (!env->scene.pl)
 //		return (false);
 	env->scene.sp = (t_sphere *)malloc(sizeof(t_sphere) * env->scene.sp_amt);
