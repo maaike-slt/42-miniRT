@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 18:19:30 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/29 22:25:12 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 11:22:05 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	init_render_pixel(t_env *env, size_t x, size_t y)
 {
-	env->rd.ray_dir = calc_ray_direction(env, x, y);
+	env->rd.ray.origin = env->rd.c->pos;
+	env->rd.ray.direction = calc_ray_direction(env, x, y);
+	env->rd.intersect.t = INFINITY;
 }
 
 void	init_render_pov(t_env *env)

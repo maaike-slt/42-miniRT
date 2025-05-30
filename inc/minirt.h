@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/29 22:54:26 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 12:08:11 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <math.h>
 # include <errno.h>
 # include <string.h>
+# include <stdint.h>
 
 # include "../libft/inc/libft.h"
 # include "../mlx/mlx.h"
@@ -28,7 +29,8 @@
 #  define WINDOW_NAME	"miniRT"
 # endif
 
-# define MAX_RESOLUTION	65535
+# define MAX_RESOLUTION		65535
+# define FLOAT_PRECISION	0.001f
 
 typedef struct s_img
 {
@@ -57,12 +59,26 @@ typedef struct s_scene
 	size_t			cy_amt;
 }	t_scene;
 
+typedef struct s_ray
+{
+	t_vec3	origin;
+	t_vec3	direction;
+}	t_ray;
+
 typedef struct s_pov_matrix
 {
 	t_vec3	right;
 	t_vec3	up;
 	t_vec3	forward;
 }	t_pov_matrix;
+
+typedef struct s_intersect
+{
+	float	t;
+	t_vec3	pos;
+	t_vec3	normal;
+	t_color	color;
+}	t_intersect;
 
 typedef struct s_render_data
 {
@@ -73,7 +89,8 @@ typedef struct s_render_data
 	float			viewport_w;
 	float			viewport_h;
 	t_pov_matrix	pov_matrix;
-	t_vec3			ray_dir;
+	t_ray			ray;
+	t_intersect		intersect;
 }	t_render_data;
 
 typedef struct s_win
@@ -138,7 +155,9 @@ void			init_render_pixel(t_env *env, size_t x, size_t y);
 
 void			set_pixel(t_img *img, t_color color, size_t index);
 
+t_vec3			vec3_add(t_vec3 a, t_vec3 b);
 t_vec3			vec3_sub(t_vec3 a, t_vec3 b);
+t_vec3			vec3_scale(t_vec3 v, float scale);
 float			vec3_dot(t_vec3 a, t_vec3 b);
 t_vec3			vec3_cross(t_vec3 a, t_vec3 b);
 float			vec3_magnitude(t_vec3 v);
@@ -147,7 +166,7 @@ t_vec3			vec3_normalize(t_vec3 v);
 t_pov_matrix	pov_matrix(const t_camera *c);
 t_vec3			calc_ray_direction(t_env *env, size_t x, size_t y);
 
-float			intersect_sphere(t_vec3 ray_ori, t_vec3 ray_dir, t_sphere sp);
+void			intersect_sphere(t_env *env);
 
 int				free_env(t_env *env);
 

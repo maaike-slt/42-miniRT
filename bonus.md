@@ -1,4 +1,6 @@
 - multi camera
+- multi light
+- colored light
 - triangle
 - resolution definition
 - camera fov follow viewport curve
