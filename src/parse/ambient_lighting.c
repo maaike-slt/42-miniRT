@@ -34,6 +34,5 @@ la, 3, "<lighting ratio> <color in r,g,b>"), false);
 puterr_invalid_float_positive_non_null(la, la->split[2]), false);
 	if (!parse_color(la, la->split[2], &(al->color)))
 		return (false);
-	env->scene.sp_amt++;
 	return (true);
 }
