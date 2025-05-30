@@ -6,11 +6,25 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 18:56:36 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/30 12:10:21 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 21:48:14 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+void	fill_intersect_sphere_hit(t_env *env, t_intersect *hit)
+{
+	t_sphere	*sp;
+
+	hit->t = env->rd.intersect.t;
+	hit->type = SPHERE;
+	hit->object = env->rd.intersect.object;
+	sp = (t_sphere *)(hit->object);
+	hit->pos = vec3_add(env->rd.ray.origin,
+			vec3_scale(env->rd.ray.direction, hit->t));
+	hit->normal = vec3_normalize(vec3_sub(hit->pos, sp->pos));
+	hit->color = sp->color;
+}
 
 static inline bool	keep_closest(t_env *env, float t)
 {
@@ -51,7 +65,7 @@ static bool	intersect_single_sphere(t_env *env, const t_sphere *sp)
 	return (false);
 }
 
-void	intersect_sphere(t_env *env)
+bool	intersect_sphere(t_env *env)
 {
 	size_t	closest;
 	size_t	i;
@@ -65,10 +79,8 @@ void	intersect_sphere(t_env *env)
 		i++;
 	}
 	if (closest == SIZE_MAX)
-		return ;
-	env->rd.intersect.pos = vec3_add(env->rd.ray.origin,
-			vec3_scale(env->rd.ray.direction, env->rd.intersect.t));
-	env->rd.intersect.normal = vec3_normalize(
-			vec3_sub(env->rd.intersect.pos, env->scene.sp[closest].pos));
-	env->rd.intersect.color = env->scene.sp[closest].color;
+		return (false);
+	env->rd.intersect.type = SPHERE;
+	env->rd.intersect.object = &(env->scene.sp[closest]);
+	return (true);
 }

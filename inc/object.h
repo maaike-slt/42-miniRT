@@ -6,12 +6,20 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:56:12 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/30 11:33:48 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 21:21:08 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OBJECT_H
 # define OBJECT_H
+
+enum e_object
+{
+	SPHERE,
+	PLANE,
+	CYLINDER,
+	TRIANGLE,
+};
 
 typedef struct s_vec3
 {
