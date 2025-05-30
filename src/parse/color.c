@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:12:54 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/30 21:11:49 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 22:36:36 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ bool	parse_color(const t_line_arg *la, const char *str, t_color *color)
 		|| !parse_color_bit(la, split[1], &(color->g))
 		|| !parse_color_bit(la, split[2], &(color->b)))
 		return (ft_2d_free((void ***)&split, len), false);
+	color->a = 0xff;
 	ft_2d_free((void ***)&split, len);
 	return (true);
 }
