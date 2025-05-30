@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:32:05 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/24 18:44:36 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:51:39 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	main(int argc, char *argv[])
 		return (free_env(&env));
 	if (!init_pov(&env))
 		return (free_env(&env));
-	if (!render(&env))
-		return (free_env(&env));
+	render(&env);
 	if (!create_window(&env))
 		return (free_env(&env));
 	set_hook(&env);
