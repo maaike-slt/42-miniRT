@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:56:12 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/29 21:32:30 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/30 11:33:48 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_camera
 typedef struct s_sphere
 {
 	t_vec3	pos;
-	float	d;
+	float	rad_sq;
 	t_color	color;
 }	t_sphere;
 
