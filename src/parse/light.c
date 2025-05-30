@@ -37,6 +37,6 @@ la, 4, "<pos in x,y,z> <brightness> <color in r,g,b>"), false);
 puterr_invalid_float(la, la->split[2], 0.0, 1.0), false);
 	if (!parse_color(la, la->split[3], &(l->color)))
 		return (false);
-	env->scene.sp_amt++;
+	env->scene.l_amt++;
 	return (true);
 }

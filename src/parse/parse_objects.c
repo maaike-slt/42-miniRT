@@ -23,7 +23,7 @@ static bool	parse_line_arg(t_env *env, const t_line_arg *la)
 		return (parse_sphere(env, la));
 	if (ft_strcmp(la->split[0], "A") == 0)
 		return (parse_ambient_lighting(env, la));
-	if (ft_strcmp(la->split[0], "L") == 0)
+	if (ft_strcmp(la->split[0], "L") == 0 || ft_strcmp(la->split[0], "l") == 0)
 		return (parse_light(env, la));
 	// if ...
 	return (true);

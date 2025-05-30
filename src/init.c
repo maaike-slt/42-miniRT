@@ -16,7 +16,6 @@ static void	init_scene(t_scene *scene)
 {
 	scene->c = NULL;
 	scene->c_amt = 0;
-//	scene->a = NULL;
 //	scene->l = NULL;
 	scene->l_amt = 0;
 //	scene->tr = NULL;
