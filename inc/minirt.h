@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/30 21:27:47 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/30 21:55:12 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_scene
 {
 	t_camera		*c;
 	size_t			c_amt;
-	// t_ambient_light	a;
+	t_ambient		a;
 	t_light			*l;
 	size_t			l_amt;
 	// t_triangle		*tr;
