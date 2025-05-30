@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:56:12 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/30 21:21:08 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 22:22:05 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,19 @@ typedef struct s_color
 	t_color_bit	b;
 	t_color_bit	a;
 }	t_color;
+
+typedef struct s_light
+{
+	t_vec3	pos;
+	float	brightness;
+	t_color	color;
+}	t_light;
+
+typedef struct s_ambient
+{
+	float	lighting_ratio;
+	t_color	color;
+}	t_ambient;
 
 typedef struct s_camera
 {
