@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:12:54 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/29 22:52:42 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 21:11:49 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ static bool	parse_color_bit(
 	}
 	if (i > 3)
 		return (puterr_invalid_int(la, str, 0, UCHAR_MAX), false);
-	*color = ft_atoun(str);
-	if (*color > UCHAR_MAX)
+	i = ft_atoun(str);
+	if (i > UCHAR_MAX)
 		return (puterr_invalid_int(la, str, 0, UCHAR_MAX), false);
+	*color = i;
 	return (true);
 }
 
