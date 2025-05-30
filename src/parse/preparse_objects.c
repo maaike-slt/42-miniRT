@@ -46,7 +46,7 @@ static bool	count_object(t_env *env, const char *line, size_t line_index)
 			;
 		else if (identifier[0] == 'C' || identifier[0] == 'c')
 			env->scene.c_amt++;
-		else if (identifier[0] == 'L')
+		else if (identifier[0] == 'L' || identifier[0] == 'l')
 			env->scene.l_amt++;
 		else
 		{
