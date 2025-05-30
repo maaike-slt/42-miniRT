@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   preparse_objects.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:26:02 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/28 23:05:56 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 22:18:01 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,11 @@ static bool	count_object(t_env *env, const char *line, size_t line_index)
 		return (true);
 	else if (identifier[1] == '\0')
 	{
-		if (identifier[0] == 'R')
+		if (identifier[0] == 'R' || identifier[0] == 'A')
 			;
 		else if (identifier[0] == 'C' || identifier[0] == 'c')
 			env->scene.c_amt++;
-		else if (identifier[0] == 'A')
-			env->scene.a_amt++;
-		else if (identifier[0] == 'L')
+		else if (identifier[0] == 'L' || identifier[0] == 'l')
 			env->scene.l_amt++;
 		else
 		{
@@ -78,7 +76,6 @@ static bool	count_object(t_env *env, const char *line, size_t line_index)
 static void	reset_scene_amt(t_env *env)
 {
 	env->scene.c_amt = 0;
-	env->scene.a_amt = 0;
 	env->scene.l_amt = 0;
 	env->scene.tr_amt = 0;
 	env->scene.pl_amt = 0;

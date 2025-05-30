@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:53:58 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/29 22:37:10 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/30 21:46:59 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ bool	parse_camera(t_env *env, const t_line_arg *la);
 bool	parse_sphere(t_env *env, const t_line_arg *la);
 bool	parse_resolution(t_env *env, const t_line_arg *la);
 bool	parse_color(const t_line_arg *la, const char *str, t_color *color);
+bool	parse_light(t_env *env, const t_line_arg *la);
+bool	parse_ambient_lighting(t_env *env, const t_line_arg *la);
 
 void	puterr_line(const char *line, size_t line_index);
 void	puterr_invalid_type_identifier(
