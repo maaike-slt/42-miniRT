@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:48:59 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/30 22:22:15 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 23:46:56 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 static void	init_scene(t_scene *scene)
 {
+	scene->a.color.r = 0xff;
+	scene->a.color.g = 0xff;
+	scene->a.color.b = 0xff;
+	scene->a.lighting_ratio = 0.2f;
 	scene->c = NULL;
 	scene->c_amt = 0;
 //	scene->l = NULL;

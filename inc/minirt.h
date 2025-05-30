@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/30 22:21:54 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 23:42:50 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,8 @@ t_vec3			vec3_normalize(t_vec3 v);
 
 t_pov_matrix	pov_matrix(const t_camera *c);
 t_vec3			calc_ray_direction(t_env *env, size_t x, size_t y);
+
+t_color			compute_lighting(t_env *env, const t_intersect *hit);
 
 bool			intersect_all(t_env *env);
 bool			intersect_sphere(t_env *env);
