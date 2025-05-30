@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 22:05:51 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/29 22:32:40 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 10:55:44 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,6 @@ static void	render_pov(t_env *env)
 
 void	render(t_env *env)
 {
-	// TEMPORARY until sphere parsing is implemented
-	env->scene.sp[0].pos = (t_vec3){0.0f, 0.0f, -3.0f};
-	env->scene.sp[0].d = 2.0f;
-	env->scene.sp[0].color = (t_color){0xff, 0x00, 0x00, 0xff};
-	//
 	init_render(env);
 	env->rd.pov_index = 0;
 	while (env->rd.pov_index < env->scene.c_amt)
