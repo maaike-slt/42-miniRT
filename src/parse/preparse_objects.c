@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   preparse_objects.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:26:02 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/28 23:05:56 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 21:09:57 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ static bool	count_object(t_env *env, const char *line, size_t line_index)
 			;
 		else if (identifier[0] == 'C' || identifier[0] == 'c')
 			env->scene.c_amt++;
-		else if (identifier[0] == 'A')
-			env->scene.a_amt++;
 		else if (identifier[0] == 'L')
 			env->scene.l_amt++;
 		else
@@ -78,7 +76,6 @@ static bool	count_object(t_env *env, const char *line, size_t line_index)
 static void	reset_scene_amt(t_env *env)
 {
 	env->scene.c_amt = 0;
-	env->scene.a_amt = 0;
 	env->scene.l_amt = 0;
 	env->scene.tr_amt = 0;
 	env->scene.pl_amt = 0;
