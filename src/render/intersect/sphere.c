@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 18:56:36 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/30 12:07:16 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 12:10:21 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ static inline bool	keep_closest(t_env *env, float t)
 	return (false);
 }
 
-static bool	intersect_single_sphere(const t_env *env, const t_sphere *sp)
+// discriminant = b^2 - 4ac = y^2 - 4xz
+
+static bool	intersect_single_sphere(t_env *env, const t_sphere *sp)
 {
 	t_vec3	oc;
 	t_vec3	d;
@@ -31,19 +33,19 @@ static bool	intersect_single_sphere(const t_env *env, const t_sphere *sp)
 	float	t1;
 
 	oc = vec3_sub(env->rd.ray.origin, sp->pos);
-	d.a = vec3_dot(env->rd.ray.direction, env->rd.ray.direction);
-	d.b = 2.0f * vec3_dot(oc, env->rd.ray.direction);
-	d.c = vec3_dot(oc, oc) - sp->rad_sq;
-	discriminant = (d.b * d.b) - (4 * d.a * d.c);
+	d.x = vec3_dot(env->rd.ray.direction, env->rd.ray.direction);
+	d.y = 2.0f * vec3_dot(oc, env->rd.ray.direction);
+	d.z = vec3_dot(oc, oc) - sp->rad_sq;
+	discriminant = (d.y * d.y) - (4 * d.x * d.z);
 	if (discriminant < 0)
 		return (false);
 	discriminant = sqrtf(discriminant);
-	d.a *= 2;
-	d.b = -d.b;
-	t0 = (d.b - discriminant) / d.a;
+	d.x *= 2;
+	d.y = -d.y;
+	t0 = (d.y - discriminant) / d.x;
 	if (t0 > FLOAT_PRECISION)
 		return (keep_closest(env, t0));
-	t1 = (d.b + discriminant) / d.a;
+	t1 = (d.y + discriminant) / d.x;
 	if (t1 > FLOAT_PRECISION)
 		return (keep_closest(env, t1));
 	return (false);
