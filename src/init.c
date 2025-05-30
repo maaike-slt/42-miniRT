@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:48:59 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/29 22:40:32 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/30 12:40:14 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ bool	init_pov(t_env *env)
 	return (true);
 }
 
+// TODO: do not malloc if size is 0
 bool	init_objects(t_env *env)
 {
 	env->scene.c = (t_camera *)malloc(sizeof(t_camera) * env->scene.c_amt);
