@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 21:45:35 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/30 22:10:25 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/30 22:13:45 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ la, 3, "<lighting ratio> <color in r,g,b>"), false);
 	a->lighting_ratio = ft_atof(la->split[1]);
 	if (a->lighting_ratio < 0 || a->lighting_ratio > 1)
 		return (\
-puterr_invalid_float(la, la->split[2], 0.0, 1.0), false);
+puterr_invalid_float(la, la->split[2], 0, 1), false);
 	if (!parse_color(la, la->split[2], &(a->color)))
 		return (false);
 	return (true);
