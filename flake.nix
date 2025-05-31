@@ -62,6 +62,40 @@
                 enable = true;
               };
 
+              git-hooks.hooks = {
+                norminette = {
+                  enable = true;
+                  name = "norminette";
+
+                  entry = "${pkgs.norminette}/bin/norminette";
+                  files = "\\.(c|h)$";
+
+                  stages = [
+                    "pre-commit"
+                    "pre-push"
+                  ];
+                };
+
+                build = {
+                  enable = true;
+                  name = "build";
+
+                  entry = "make";
+                  pass_filenames = false;
+                  always_run = true;
+
+                  stages = [
+                    "pre-commit"
+                    "pre-push"
+                  ];
+                };
+
+                checkmake = {
+                  enable = true;
+                  stages = ["pre-commit" "pre-push"];
+                };
+              };
+
               enterShell = ''
                 alias cc='clang'
               '';
