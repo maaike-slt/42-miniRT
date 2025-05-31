@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 22:30:55 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/31 00:07:57 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/31 10:56:30 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,33 @@ static void	init_light_data(
 	env->rd.intersect.t = vec3_magnitude(to_light);
 }
 
+static float	compute_specular(
+	t_env *env, const t_intersect *hit, const t_light *l)
+{
+	t_vec3	reflect_direction;
+	float	specular;
+
+	reflect_direction = \
+vec3_reflect(vec3_negate(env->rd.ray.direction), hit->normal);
+	specular = fmaxf(vec3_dot(reflect_direction, env->rd.view_direction), 0.0f);
+	return (powf(specular, SHININESS) * l->brightness);
+}
+
 static void	compute_single_light(
 	t_env *env, const t_intersect *hit, const t_light *l, t_vec3 *color)
 {
 	float	diffuse;
+	float	specular;
 
 	init_light_data(env, l, hit);
 	if (intersect_all(env))
 		return ;
 	diffuse = fmaxf(vec3_dot(hit->normal, env->rd.ray.direction), 0.0f);
 	diffuse *= l->brightness;
-	color->x += diffuse * CR(l->color.r) * CR(hit->color.r);
-	color->y += diffuse * CR(l->color.g) * CR(hit->color.g);
-	color->z += diffuse * CR(l->color.b) * CR(hit->color.b);
+	specular = compute_specular(env, hit, l);
+	color->x += (diffuse * CR(hit->color.r) + specular) * CR(l->color.r);
+	color->y += (diffuse * CR(hit->color.g) + specular) * CR(l->color.g);
+	color->z += (diffuse * CR(hit->color.b) + specular) * CR(l->color.b);
 }
 
 t_color	compute_lighting(t_env *env, const t_intersect *hit)
@@ -53,6 +67,8 @@ t_color	compute_lighting(t_env *env, const t_intersect *hit)
 	t_vec3	color;
 	size_t	i;
 
+	env->rd.view_direction = vec3_normalize(
+			vec3_scale(env->rd.ray.direction, -1.0f));
 	color = apply_ambient_light(hit->color, env->scene.a);
 	i = 0;
 	while (i < env->scene.l_amt)
