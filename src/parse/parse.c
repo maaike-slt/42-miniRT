@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:09:57 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/24 18:03:27 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/31 11:22:04 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ puterr(), ft_putstr_fd("no camera found\n", STDERR_FILENO), false);
 bool	parse(t_env *env, const char *file)
 {
 	// TODO: check if file ends in `.rt`
-	if (!with_file(env, file, preparse_objects))
+	if (!with_file(env, file, preparse_object))
 		return (false);
-	if (!with_file(env, file, parse_objects))
+	if (!with_file(env, file, parse_object))
 		return (false);
 	if (!validate_scene(env))
 		return (false);
