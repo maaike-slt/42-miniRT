@@ -62,12 +62,22 @@
                 enable = true;
               };
 
-              git-hooks.hooks = {
+              git-hooks.hooks = let
+                norminetteWrapper =
+                  pkgs.writers.writeBashBin "norminette"
+                  /*
+                  bash
+                  */
+                  ''
+                    ${pkgs.norminette}/bin/norminette "$@" | ${pkgs.ripgrep}/bin/rg -q '^Error:' && exit 1 || exit 0
+                  '';
+                norminette = "${norminetteWrapper}/bin/norminette";
+              in {
                 norminette = {
                   enable = true;
                   name = "norminette";
 
-                  entry = "${pkgs.norminette}/bin/norminette";
+                  entry = norminette;
                   files = "\\.(c|h)$";
 
                   stages = [
@@ -79,7 +89,7 @@
                   enable = true;
                   name = "norminette-global";
 
-                  entry = "${pkgs.norminette}/bin/norminette";
+                  entry = norminette;
                   args = ["./src" "./inc"];
                   pass_filenames = false;
                   always_run = true;
