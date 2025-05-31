@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/31 00:06:21 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/31 11:10:06 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@
 # define MAX_RESOLUTION		65535
 # define FLOAT_PRECISION	0.001f
 
-# define CR(c)	((float)(c) / 255.0f)
-# define CRR(c)	((t_color_bit)((c) * 255.0f))
+# define SHININESS			8.0f
 
 typedef struct s_img
 {
@@ -95,6 +94,7 @@ typedef struct s_render_data
 	t_pov_matrix	pov_matrix;
 	t_ray			ray;
 	t_intersect		intersect;
+	t_vec3			view_direction;
 }	t_render_data;
 
 typedef struct s_win
@@ -157,8 +157,12 @@ void			init_render(t_env *env);
 void			init_render_pov(t_env *env);
 void			init_render_pixel(t_env *env, size_t x, size_t y);
 
+float			cr(t_color_bit c);
+t_color_bit		crr(float c);
+
 void			set_pixel(t_img *img, t_color color, size_t index);
 
+t_vec3			vec3_negate(t_vec3 v);
 t_vec3			vec3_add(t_vec3 a, t_vec3 b);
 t_vec3			vec3_sub(t_vec3 a, t_vec3 b);
 t_vec3			vec3_scale(t_vec3 v, float scale);
@@ -166,11 +170,15 @@ float			vec3_dot(t_vec3 a, t_vec3 b);
 t_vec3			vec3_cross(t_vec3 a, t_vec3 b);
 float			vec3_magnitude(t_vec3 v);
 t_vec3			vec3_normalize(t_vec3 v);
+t_vec3			vec3_reflect(t_vec3 incident, t_vec3 normal);
 
 t_pov_matrix	pov_matrix(const t_camera *c);
 t_vec3			calc_ray_direction(t_env *env, size_t x, size_t y);
 
 t_color			compute_lighting(t_env *env, const t_intersect *hit);
+t_vec3			apply_ambient_light(t_color color, t_ambient ambient);
+float			compute_specular(
+					t_env *env, const t_intersect *hit, const t_light *l);
 
 bool			intersect_all(t_env *env);
 bool			intersect_sphere(t_env *env);
