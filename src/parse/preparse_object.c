@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   preparse_objects.c                                 :+:      :+:    :+:   */
+/*   preparse_object.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:26:02 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/31 11:16:49 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/31 11:21:54 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	reset_scene_amt(t_env *env)
 	env->scene.cy_amt = 0;
 }
 
-bool	preparse_objects(t_env *env, int fd)
+bool	preparse_object(t_env *env, int fd)
 {
 	size_t	i;
 	char	*line;
@@ -42,7 +42,7 @@ bool	preparse_objects(t_env *env, int fd)
 	}
 	if (!valid)
 		return (false);
-	init_objects(env);
+	init_object(env);
 	reset_scene_amt(env);
 	return (true);
 }

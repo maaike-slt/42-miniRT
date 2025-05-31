@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:53:58 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/31 11:16:25 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/31 11:21:17 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ typedef struct s_expected_got
 }	t_expected_got;
 
 bool	count_object(t_env *env, const char *line, size_t line_index);
-bool	preparse_objects(t_env *env, int fd);
-bool	parse_objects(t_env *env, int fd);
+bool	preparse_object(t_env *env, int fd);
+bool	parse_object(t_env *env, int fd);
 
 bool	parse_vec3(const t_line_arg *la, const char *str, t_vec3 *vec3);
 

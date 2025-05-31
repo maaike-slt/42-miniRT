@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_objects.c                                    :+:      :+:    :+:   */
+/*   parse_object.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:11:31 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/30 21:56:27 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/31 11:21:01 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static bool	parse_line(t_env *env, t_line_arg *la)
 	return (parse_line_arg(env, la));
 }
 
-bool	parse_objects(t_env *env, int fd)
+bool	parse_object(t_env *env, int fd)
 {
 	t_line_arg	la;
 	bool		res;
