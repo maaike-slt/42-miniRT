@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:48:59 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/30 21:09:06 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/31 00:16:30 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 static void	init_scene(t_scene *scene)
 {
+	scene->a.color.r = 0xff;
+	scene->a.color.g = 0xff;
+	scene->a.color.b = 0xff;
+	scene->a.lighting_ratio = 0.2f;
 	scene->c = NULL;
 	scene->c_amt = 0;
-//	scene->l = NULL;
+	scene->l = NULL;
 	scene->l_amt = 0;
 //	scene->tr = NULL;
 	scene->tr_amt = 0;
@@ -48,10 +52,12 @@ static void	init_pov_pixel(t_env *env, t_img *pov)
 	size_t	pov_size;
 	size_t	pix_i;
 
-	color.r = 0x00;
-	color.g = 0x00;
-	color.b = 0x00;
-	color.a = 0xff;
+	color = (t_color){
+		CRR(CR(env->scene.a.color.r) * env->scene.a.lighting_ratio),
+		CRR(CR(env->scene.a.color.g) * env->scene.a.lighting_ratio),
+		CRR(CR(env->scene.a.color.b) * env->scene.a.lighting_ratio),
+		0x80
+	};
 	pov_size = env->win.w * env->win.h;
 	pix_i = 0;
 	while (pix_i < pov_size)
@@ -84,25 +90,20 @@ bool	init_pov(t_env *env)
 	return (true);
 }
 
+// TODO: do not malloc if size is 0
 bool	init_objects(t_env *env)
 {
 	env->scene.c = (t_camera *)malloc(sizeof(t_camera) * env->scene.c_amt);
 	if (!env->scene.c)
 		return (false);
-//	env->scene.a =
-//(t_ambient_light *)malloc(sizeof(t_ambient_light) * env->scene.a_amt);
-//	if (!env->scene.a)
-//		return (false);
-//	env->scene.l =
-//(t_light *)malloc(sizeof(t_light) * env->scene.l_amt);
-//	if (!env->scene.l)
-//		return (false);
+	env->scene.l = (t_light *)malloc(sizeof(t_light) * env->scene.l_amt);
+	if (!env->scene.l)
+		return (false);
 //	env->scene.tr =
-//(t_triangle *)malloc(sizeof(t_triangle) * env->scene.tr_amt);
+// (t_triangle *)malloc(sizeof(t_triangle) * env->scene.tr_amt);
 //	if (!env->scene.tr)
 //		return (false);
-//	env->scene.pl =
-//(t_plane *)malloc(sizeof(t_plane) * env->scene.pl_amt);
+//	env->scene.pl = (t_plane *)malloc(sizeof(t_plane) * env->scene.pl_amt);
 //	if (!env->scene.pl)
 //		return (false);
 	env->scene.sp = (t_sphere *)malloc(sizeof(t_sphere) * env->scene.sp_amt);

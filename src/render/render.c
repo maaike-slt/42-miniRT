@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 22:05:51 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/30 12:02:03 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/30 22:25:35 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 static void	render_pixel(t_env *env, size_t x, size_t y)
 {
-	init_render_pixel(env, x, y);
-	intersect_sphere(env);
+	t_intersect	camera_hit;
 
-	if (env->rd.intersect.t != INFINITY)
-		set_pixel(env->rd.pov, env->rd.intersect.color, y * env->win.w + x);
+	init_render_pixel(env, x, y);
+	if (!intersect_all(env))
+		return ;
+	fill_intersect_hit(env, &camera_hit);
+	set_pixel(
+		env->rd.pov,
+		compute_lighting(env, &camera_hit),
+		y * env->win.w + x);
 }
 
 static void	render_pov(t_env *env)

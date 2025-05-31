@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/30 21:55:12 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/31 00:06:21 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@
 
 # define MAX_RESOLUTION		65535
 # define FLOAT_PRECISION	0.001f
+
+# define CR(c)	((float)(c) / 255.0f)
+# define CRR(c)	((t_color_bit)((c) * 255.0f))
 
 typedef struct s_img
 {
@@ -73,10 +76,12 @@ typedef struct s_pov_matrix
 
 typedef struct s_intersect
 {
-	float	t;
-	t_vec3	pos;
-	t_vec3	normal;
-	t_color	color;
+	float			t;
+	enum e_object	type;
+	void			*object;
+	t_vec3			pos;
+	t_vec3			normal;
+	t_color			color;
 }	t_intersect;
 
 typedef struct s_render_data
@@ -165,7 +170,13 @@ t_vec3			vec3_normalize(t_vec3 v);
 t_pov_matrix	pov_matrix(const t_camera *c);
 t_vec3			calc_ray_direction(t_env *env, size_t x, size_t y);
 
-void			intersect_sphere(t_env *env);
+t_color			compute_lighting(t_env *env, const t_intersect *hit);
+
+bool			intersect_all(t_env *env);
+bool			intersect_sphere(t_env *env);
+
+void			fill_intersect_hit(t_env *env, t_intersect *hit);
+void			fill_intersect_sphere_hit(t_env *env, t_intersect *hit);
 
 int				free_env(t_env *env);
 
