@@ -72,6 +72,19 @@
 
                   stages = [
                     "pre-commit"
+                  ];
+                };
+
+                norminette-global = {
+                  enable = true;
+                  name = "norminette-global";
+
+                  entry = "${pkgs.norminette}/bin/norminette";
+                  args = ["./src" "./inc"];
+                  pass_filenames = false;
+                  always_run = true;
+
+                  stages = [
                     "pre-push"
                   ];
                 };
