@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 11:12:32 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/31 11:17:25 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/31 21:40:11 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static bool	count_one_letter_object(
 	size_t line_index,
 	char identifier)
 {
+	char	tmp[2];
+
 	if (identifier == 'R' || identifier == 'A')
 		return (true);
 	else if (identifier == 'C' || identifier == 'c')
@@ -47,7 +49,9 @@ static bool	count_one_letter_object(
 		env->scene.l_amt++;
 	else
 	{
-		puterr_invalid_type_identifier(line, line_index, &identifier);
+		tmp[0] = identifier;
+		tmp[1] = '\0';
+		puterr_invalid_type_identifier(line, line_index, tmp);
 		return (false);
 	}
 	return (true);
