@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light.c                                            :+:      :+:    :+:   */
+/*   compute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 22:30:55 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/31 10:56:30 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/31 11:05:28 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-static t_vec3	apply_ambient_light(t_color color, t_ambient ambient)
-{
-	return ((t_vec3){
-		CR(color.r) * CR(ambient.color.r) * ambient.lighting_ratio,
-		CR(color.g) * CR(ambient.color.g) * ambient.lighting_ratio,
-		CR(color.b) * CR(ambient.color.b) * ambient.lighting_ratio
-	});
-}
 
 static void	init_light_data(
 	t_env *env, const t_light *l, const t_intersect *hit)
@@ -31,18 +22,6 @@ static void	init_light_data(
 			vec3_scale(hit->normal, FLOAT_PRECISION));
 	env->rd.ray.direction = vec3_normalize(to_light);
 	env->rd.intersect.t = vec3_magnitude(to_light);
-}
-
-static float	compute_specular(
-	t_env *env, const t_intersect *hit, const t_light *l)
-{
-	t_vec3	reflect_direction;
-	float	specular;
-
-	reflect_direction = \
-vec3_reflect(vec3_negate(env->rd.ray.direction), hit->normal);
-	specular = fmaxf(vec3_dot(reflect_direction, env->rd.view_direction), 0.0f);
-	return (powf(specular, SHININESS) * l->brightness);
 }
 
 static void	compute_single_light(

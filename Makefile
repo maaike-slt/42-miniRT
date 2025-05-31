@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/05/31 10:52:26 by adelille         ###   ########.fr        #
+#    Updated: 2025/05/31 11:05:54 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,7 @@ SRC_NAME =	main.c \
 			window/create.c window/close.c window/hook.c window/handle_keycode.c \
 			render/render.c render/init.c render/set_pixel.c \
 			render/pov_matrix.c render/ray_direction.c \
-			render/light.c \
+			render/light/compute.c render/light/ambient.c render/light/specular.c \
 			render/intersect/all.c \
 			render/intersect/sphere.c \
 			puterr.c \
