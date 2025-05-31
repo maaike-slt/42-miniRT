@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 22:30:55 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/31 11:05:28 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/31 11:09:27 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static void	compute_single_light(
 	diffuse = fmaxf(vec3_dot(hit->normal, env->rd.ray.direction), 0.0f);
 	diffuse *= l->brightness;
 	specular = compute_specular(env, hit, l);
-	color->x += (diffuse * CR(hit->color.r) + specular) * CR(l->color.r);
-	color->y += (diffuse * CR(hit->color.g) + specular) * CR(l->color.g);
-	color->z += (diffuse * CR(hit->color.b) + specular) * CR(l->color.b);
+	color->x += (diffuse * cr(hit->color.r) + specular) * cr(l->color.r);
+	color->y += (diffuse * cr(hit->color.g) + specular) * cr(l->color.g);
+	color->z += (diffuse * cr(hit->color.b) + specular) * cr(l->color.b);
 }
 
 t_color	compute_lighting(t_env *env, const t_intersect *hit)
@@ -56,9 +56,9 @@ t_color	compute_lighting(t_env *env, const t_intersect *hit)
 		i++;
 	}
 	return ((t_color){
-		.r = CRR(fminf(color.x, 1.0f)),
-		.g = CRR(fminf(color.y, 1.0f)),
-		.b = CRR(fminf(color.z, 1.0f)),
+		.r = crr(fminf(color.x, 1.0f)),
+		.g = crr(fminf(color.y, 1.0f)),
+		.b = crr(fminf(color.z, 1.0f)),
 		.a = 0xff
 	});
 }

@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/31 11:06:33 by adelille         ###   ########.fr       */
+/*   Updated: 2025/05/31 11:10:06 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@
 # define FLOAT_PRECISION	0.001f
 
 # define SHININESS			8.0f
-
-# define CR(c)	((float)(c) / 255.0f)
-# define CRR(c)	((t_color_bit)((c) * 255.0f))
 
 typedef struct s_img
 {
@@ -159,6 +156,9 @@ void			render(t_env *env);
 void			init_render(t_env *env);
 void			init_render_pov(t_env *env);
 void			init_render_pixel(t_env *env, size_t x, size_t y);
+
+float			cr(t_color_bit c);
+t_color_bit		crr(float c);
 
 void			set_pixel(t_img *img, t_color color, size_t index);
 
