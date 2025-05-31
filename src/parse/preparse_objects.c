@@ -6,72 +6,12 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:26:02 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/30 22:18:01 by msloot           ###   ########.fr       */
+/*   Updated: 2025/05/31 11:16:49 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "parse.h"
-
-static void	extract_identifier(const char *line, char *identifier)
-{
-	size_t	line_i;
-	size_t	id_i;
-
-	identifier[0] = '\0';
-	identifier[1] = '\0';
-	identifier[2] = '\0';
-	line_i = 0;
-	while (line[line_i] && ft_isspace(line[line_i]))
-		line_i++;
-	id_i = 0;
-	while (line[line_i] && !ft_isspace(line[line_i]) && id_i < 2)
-	{
-		identifier[id_i] = line[line_i];
-		line_i++;
-		id_i++;
-	}
-}
-
-static bool	count_object(t_env *env, const char *line, size_t line_index)
-{
-	char	identifier[3];
-
-	extract_identifier(line, identifier);
-	if (identifier[0] == '\0')
-		return (true);
-	else if (identifier[1] == '\0')
-	{
-		if (identifier[0] == 'R' || identifier[0] == 'A')
-			;
-		else if (identifier[0] == 'C' || identifier[0] == 'c')
-			env->scene.c_amt++;
-		else if (identifier[0] == 'L' || identifier[0] == 'l')
-			env->scene.l_amt++;
-		else
-		{
-			puterr_invalid_type_identifier(line, line_index, identifier);
-			return (false);
-		}
-	}
-	else if (identifier[2] == '\0')
-	{
-		if (ft_strncmp(identifier, "tr", 2) == 0)
-			env->scene.tr_amt++;
-		else if (ft_strncmp(identifier, "pl", 2) == 0)
-			env->scene.pl_amt++;
-		else if (ft_strncmp(identifier, "sp", 2) == 0)
-			env->scene.sp_amt++;
-		else if (ft_strncmp(identifier, "cy", 2) == 0)
-			env->scene.cy_amt++;
-		else
-		{
-			puterr_invalid_type_identifier(line, line_index, identifier);
-			return (false);
-		}
-	}
-	return (true);
-}
 
 static void	reset_scene_amt(t_env *env)
 {
