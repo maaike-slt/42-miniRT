@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/05/31 11:21:04 by adelille         ###   ########.fr        #
+#    Updated: 2025/06/01 13:37:45 by msloot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,8 @@ SRC_NAME =	main.c \
 			init/env.c init/pov.c init/object.c \
 			parse/parse.c parse/parse_object.c \
 			parse/preparse_object.c parse/count_object.c \
-			parse/vec3.c parse/sphere.c parse/light.c parse/ambient_lighting.c \
+			parse/vec3.c parse/sphere.c parse/plane.c \
+			parse/light.c parse/ambient_lighting.c \
 			parse/resolution.c parse/camera.c parse/color.c \
 			parse/puterr/line.c parse/puterr/identifier.c \
 			parse/puterr/token_amount.c \
