@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/01 17:55:27 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/01 22:53:54 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,8 @@ bool			intersect_all(t_env *env);
 bool			intersect_sphere(t_env *env);
 bool			intersect_plane(t_env *env);
 bool			intersect_cylinder(t_env *env);
+float			intersect_cylinder_cap_bottom(t_env *env, const t_cylinder *cy);
+float			intersect_cylinder_cap_top(t_env *env, const t_cylinder *cy);
 
 void			fill_intersect_hit(t_env *env, t_intersect *hit);
 void			fill_intersect_sphere_hit(t_env *env, t_intersect *hit);

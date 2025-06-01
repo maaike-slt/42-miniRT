@@ -2,6 +2,7 @@
 - multi light
 - colored light
 - triangle
+- cylinder cap with normals
 - resolution definition
 - camera fov follow viewport curve
 - phong (specular reflection)
