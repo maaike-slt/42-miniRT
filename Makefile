@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/06/01 13:55:53 by msloot           ###   ########.fr        #
+#    Updated: 2025/06/01 16:10:58 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,7 +92,8 @@ SRC_NAME =	main.c \
 			render/color_ratio.c \
 			render/light/compute.c render/light/ambient.c render/light/specular.c \
 			render/intersect/all.c \
-			render/intersect/sphere.c \
+			render/intersect/sphere.c render/intersect/plane.c \
+			render/intersect/keep_closest.c \
 			puterr.c \
 			free.c
 

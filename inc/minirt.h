@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/01 14:11:30 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/01 16:13:25 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,9 +182,13 @@ float			compute_specular(
 
 bool			intersect_all(t_env *env);
 bool			intersect_sphere(t_env *env);
+bool			intersect_plane(t_env *env);
 
 void			fill_intersect_hit(t_env *env, t_intersect *hit);
 void			fill_intersect_sphere_hit(t_env *env, t_intersect *hit);
+void			fill_intersect_plane_hit(t_env *env, t_intersect *hit);
+
+bool			keep_closest(t_env *env, float t);
 
 int				free_env(t_env *env);
 
