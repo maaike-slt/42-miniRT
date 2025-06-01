@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:56:12 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/30 22:22:05 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/01 14:33:32 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,21 @@ typedef struct s_sphere
 	float	rad_sq;
 	t_color	color;
 }	t_sphere;
+
+typedef struct s_plane
+{
+	t_vec3	pos;
+	t_vec3	normal;
+	t_color	color;
+}	t_plane;
+
+typedef struct s_cylinder
+{
+	t_vec3	pos;
+	t_vec3	normal;
+	float	diameter;
+	float	height;
+	t_color	color;
+}	t_cylinder;
 
 #endif
