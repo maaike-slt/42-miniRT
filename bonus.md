@@ -3,6 +3,7 @@
 - colored light
 - triangle
 - cylinder cap with normals
+- half ellipsoid
 - resolution definition
 - camera fov follow viewport curve
 - phong (specular reflection)
