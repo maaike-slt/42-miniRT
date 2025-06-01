@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 13:35:34 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/01 13:46:28 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/01 14:37:05 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,12 @@ bool	parse_plane(t_env *env, const t_line_arg *la)
 
 	if (la->split_size != 4)
 		return (puterr_invalid_token_amount(\
-la, 4, "<pos in x,y,z> <3D vector> <color in r,g,b>"), false);
+la, 4, "<pos in x,y,z> <normal in x,y,x> <color in r,g,b>"), false);
 	pl = &(env->scene.pl[env->scene.pl_amt]);
 	if (!parse_vec3(la, la->split[1], &(pl->pos)))
 		return (false);
-	pl->vec = ft_atof(la->split[2]);
-	if (pl->vec < -1 || pl->vec > 1)
-		return (\
-puterr_invalid_float(la, la->split[2], 0, 1), false);
+	if (!parse_vec3(la, la->split[2], &(pl->normal)))
+		return (false);
 	if (!parse_color(la, la->split[3], &(pl->color)))
 		return (false);
 	env->scene.pl_amt++;
