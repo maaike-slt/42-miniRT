@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 11:19:37 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/01 13:44:44 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/01 14:07:08 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ bool	init_object(t_env *env)
 //			sizeof(t_triangle), env->scene.tr_amt))
 //		return (false);
 	if (!malloc_object((void **)&env->scene.pl,
-		sizeof(t_plane), env->scene.pl_amt))
+			sizeof(t_plane), env->scene.pl_amt))
 		return (false);
 	if (!malloc_object((void **)&env->scene.sp,
 			sizeof(t_sphere), env->scene.sp_amt))
 		return (false);
-//	if (!malloc_object((void **)&env->scene.cy,
-//			sizeof(t_cylinder), env->scene.cy_amt))
-//		return (false);
+	if (!malloc_object((void **)&env->scene.cy,
+			sizeof(t_cylinder), env->scene.cy_amt))
+		return (false);
 	return (true);
 }

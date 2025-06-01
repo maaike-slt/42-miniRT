@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/01 13:44:36 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/01 14:11:30 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_scene
 	size_t			pl_amt;
 	t_sphere		*sp;
 	size_t			sp_amt;
-	// t_cylinder		*cy;
+	t_cylinder		*cy;
 	size_t			cy_amt;
 }	t_scene;
 

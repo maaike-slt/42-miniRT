@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:56:12 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/01 13:41:50 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/01 14:12:23 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,14 @@ typedef struct s_plane
 	float	vec;
 	t_color	color;
 }	t_plane;
+
+typedef struct s_cylinder
+{
+	t_vec3	pos;
+	float	vec;
+	float	diameter;
+	float	height;
+	t_color	color;
+}	t_cylinder;
 
 #endif

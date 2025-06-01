@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:11:31 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/01 13:43:33 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/01 14:06:45 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static bool	parse_line_arg(t_env *env, const t_line_arg *la)
 		return (parse_sphere(env, la));
 	if (ft_strcmp(la->split[0], "pl") == 0)
 		return (parse_plane(env, la));
+	if (ft_strcmp(la->split[0], "cy") == 0)
+		return (parse_cylinder(env, la));
 	if (ft_strcmp(la->split[0], "A") == 0)
 		return (parse_ambient_lighting(env, la));
 	if (ft_strcmp(la->split[0], "L") == 0 || ft_strcmp(la->split[0], "l") == 0)
