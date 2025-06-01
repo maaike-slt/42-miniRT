@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 11:12:32 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/01 16:20:44 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/01 16:42:12 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ static bool	count_two_letter_object(
 		env->scene.sp_amt++;
 	else if (ft_strncmp(identifier, "cy", 2) == 0)
 		env->scene.cy_amt++;
-	else if (ft_strncmp(identifier, "sq", 2) == 0)
-		;
 	else
 	{
 		puterr_invalid_type_identifier(line, line_index, identifier);
