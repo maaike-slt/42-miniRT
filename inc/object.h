@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:56:12 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/03 19:57:02 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/03 20:26:30 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,13 @@ typedef struct s_triangle
 	t_vec3	pos_c;
 	t_color	color;
 }	t_triangle;
+
+typedef struct s_square
+{
+	t_vec3	pos;
+	t_vec3	normal;
+	float	width;
+	t_color	color;
+}	t_square;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:26:02 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/31 11:21:54 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/03 20:31:38 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void	reset_scene_amt(t_env *env)
 	env->scene.c_amt = 0;
 	env->scene.l_amt = 0;
 	env->scene.tr_amt = 0;
+	env->scene.sq_amt = 0;
 	env->scene.pl_amt = 0;
 	env->scene.sp_amt = 0;
 	env->scene.cy_amt = 0;
