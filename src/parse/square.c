@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 20:13:10 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/03 20:38:01 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/03 20:54:37 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "parse.h"
 
 /*
+Square:
 sq 0,25.5,-79.5 1,0,0 85 255,255,255
   ∗ identifier: sq
   ∗ x, y, z position coordinates

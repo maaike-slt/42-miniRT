@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 19:50:54 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/03 20:27:27 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/03 20:51:25 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "parse.h"
 
 /*
-Triagnle:
+Triangle:
 tr  0.0,0.0,21.1 0.0,42.2,0.0 -82.3,0.0,0.0 10,0,255
   ∗ identifier: tr
   ∗ x, y, z coordinates of point a
@@ -29,7 +29,7 @@ bool	parse_triangle(t_env *env, const t_line_arg *la)
 
 	if (la->split_size != 5)
 		return (puterr_invalid_token_amount(\
-la, 5, "<pos in x,y,z> <pos in x.y.z> <pos in x,y,z> <color in r,g,b>"), false);
+la, 5, "<pos in x,y,z> <pos in x,y,z> <pos in x,y,z> <color in r,g,b>"), false);
 	tr = &(env->scene.tr[env->scene.tr_amt]);
 	if (!parse_vec3(la, la->split[1], &(tr->pos_a)))
 		return (false);
