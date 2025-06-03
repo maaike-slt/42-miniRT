@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 20:13:10 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/03 20:54:37 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/03 20:57:30 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	parse_square(t_env *env, const t_line_arg *la)
 
 	if (la->split_size != 5)
 		return (puterr_invalid_token_amount(\
-la, 5, "<pos in x,y,z> <normal in x,y,x> <width> <color in r,g,b>"), false);
+la, 5, "<pos in x,y,z> <normal in x,y,z> <width> <color in r,g,b>"), false);
 	sq = &(env->scene.sq[env->scene.sq_amt]);
 	if (!parse_vec3(la, la->split[1], &(sq->pos)))
 		return (false);
