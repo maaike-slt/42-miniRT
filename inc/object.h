@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:56:12 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/01 14:33:32 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/03 19:57:02 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,13 @@ typedef struct s_cylinder
 	float	height;
 	t_color	color;
 }	t_cylinder;
+
+typedef struct s_triangle
+{
+	t_vec3	pos_a;
+	t_vec3	pos_b;
+	t_vec3	pos_c;
+	t_color	color;
+}	t_triangle;
 
 #endif
