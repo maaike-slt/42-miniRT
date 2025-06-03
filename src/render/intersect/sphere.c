@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 18:56:36 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/30 21:48:14 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/01 16:11:08 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,6 @@ void	fill_intersect_sphere_hit(t_env *env, t_intersect *hit)
 			vec3_scale(env->rd.ray.direction, hit->t));
 	hit->normal = vec3_normalize(vec3_sub(hit->pos, sp->pos));
 	hit->color = sp->color;
-}
-
-static inline bool	keep_closest(t_env *env, float t)
-{
-	if (t < env->rd.intersect.t)
-	{
-		env->rd.intersect.t = t;
-		return (true);
-	}
-	return (false);
 }
 
 // discriminant = b^2 - 4ac = y^2 - 4xz

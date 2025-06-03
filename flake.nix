@@ -62,6 +62,63 @@
                 enable = true;
               };
 
+              git-hooks.hooks = let
+                norminetteWrapper =
+                  pkgs.writers.writeBashBin "norminette"
+                  /*
+                  bash
+                  */
+                  ''
+                    ${pkgs.norminette}/bin/norminette "$@" | ${pkgs.ripgrep}/bin/rg -q '^Error:' && exit 1 || exit 0
+                  '';
+                norminette = "${norminetteWrapper}/bin/norminette";
+              in {
+                norminette = {
+                  enable = true;
+                  name = "norminette";
+
+                  entry = norminette;
+                  files = "\\.(c|h)$";
+
+                  stages = [
+                    "pre-commit"
+                  ];
+                };
+
+                norminette-global = {
+                  enable = true;
+                  name = "norminette-global";
+
+                  entry = norminette;
+                  args = ["./src" "./inc"];
+                  pass_filenames = false;
+                  always_run = true;
+
+                  stages = [
+                    "pre-push"
+                  ];
+                };
+
+                build = {
+                  enable = true;
+                  name = "build";
+
+                  entry = "make";
+                  pass_filenames = false;
+                  always_run = true;
+
+                  stages = [
+                    "pre-commit"
+                    "pre-push"
+                  ];
+                };
+
+                checkmake = {
+                  enable = true;
+                  stages = ["pre-commit" "pre-push"];
+                };
+              };
+
               enterShell = ''
                 alias cc='clang'
               '';
