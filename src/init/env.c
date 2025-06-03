@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:48:59 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/01 14:11:41 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/03 20:22:06 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ static void	init_scene(t_scene *scene)
 	scene->c_amt = 0;
 	scene->l = NULL;
 	scene->l_amt = 0;
-//	scene->tr = NULL;
+	scene->tr = NULL;
 	scene->tr_amt = 0;
+	scene->sq = NULL;
+	scene->sq_amt = 0;
 	scene->pl = NULL;
 	scene->pl_amt = 0;
 	scene->sp = NULL;
