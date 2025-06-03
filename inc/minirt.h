@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/03 20:21:49 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/03 20:38:40 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_scene
 	size_t			l_amt;
 	t_triangle		*tr;
 	size_t			tr_amt;
-	t_triangle		*sq;
+	t_square		*sq;
 	size_t			sq_amt;
 	t_plane			*pl;
 	size_t			pl_amt;
