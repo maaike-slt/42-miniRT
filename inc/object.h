@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:56:12 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/03 20:46:46 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/03 21:02:27 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ enum e_object
 	PLANE,
 	CYLINDER,
 	TRIANGLE,
+	SQUARE,
 };
 
 typedef struct s_vec3

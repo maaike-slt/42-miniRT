@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 21:28:37 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/01 16:58:26 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/03 21:02:35 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	fill_intersect_hit(t_env *env, t_intersect *hit)
 		fill_intersect_cylinder_hit(env, hit);
 //	else if (env->rd.intersect.type == TRIANGLE)
 //		fill_intersect_triangle_hit(env, hit);
+	else if (env->rd.intersect.type == SQUARE)
+		fill_intersect_square_hit(env, hit);
 }
 
 bool	intersect_all(t_env *env)
@@ -33,5 +35,6 @@ bool	intersect_all(t_env *env)
 	hit |= intersect_plane(env);
 	hit |= intersect_cylinder(env);
 	// hit |= intersect_triangle(env);
+	hit |= intersect_square(env);
 	return (hit);
 }
