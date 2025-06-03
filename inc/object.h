@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:56:12 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/03 20:26:30 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/03 20:46:46 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ typedef struct s_vec3
 	float	y;
 	float	z;
 }	t_vec3;
+
+typedef struct s_vec2
+{
+	float	x;
+	float	y;
+}	t_vec2;
 
 typedef u_int8_t	t_color_bit;
 
