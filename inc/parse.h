@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:53:58 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/03 19:55:26 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/03 20:36:11 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ bool	parse_sphere(t_env *env, const t_line_arg *la);
 bool	parse_plane(t_env *env, const t_line_arg *la);
 bool	parse_cylinder(t_env *env, const t_line_arg *la);
 bool	parse_triangle(t_env *env, const t_line_arg *la);
+bool	parse_square(t_env *env, const t_line_arg *la);
 bool	parse_resolution(t_env *env, const t_line_arg *la);
 bool	parse_color(const t_line_arg *la, const char *str, t_color *color);
 bool	parse_light(t_env *env, const t_line_arg *la);
