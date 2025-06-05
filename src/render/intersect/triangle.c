@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 18:56:36 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/05 22:50:41 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/05 22:57:12 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	fill_intersect_triangle_hit(t_env *env, t_intersect *hit)
 	hit->pos = vec3_add(env->rd.ray.origin,
 			vec3_scale(env->rd.ray.direction, hit->t));
 	get_triangle_edges(tr, &edge_ab, &edge_ac);
-	hit->normal = vec3_normalize(vec3_scale(vec3_cross(edge_ab, edge_ac), -1.0f));
+	hit->normal = vec3_normalize(vec3_cross(edge_ab, edge_ac));
 	hit->color = tr->color;
 }
 

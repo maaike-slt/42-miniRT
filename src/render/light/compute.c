@@ -6,26 +6,27 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 22:30:55 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/31 11:09:27 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/05 23:01:17 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 static void	init_light_data(
-	t_env *env, const t_light *l, const t_intersect *hit)
+	t_env *env, const t_light *l, t_intersect *hit)
 {
 	t_vec3			to_light;
 
 	to_light = vec3_sub(l->pos, hit->pos);
-	env->rd.ray.origin = vec3_add(hit->pos,
-			vec3_scale(hit->normal, FLOAT_PRECISION));
+	env->rd.ray.origin = hit->pos;
+	if (vec3_dot(to_light, hit->normal) < 0.0f)
+		hit->normal = vec3_negate(hit->normal);
 	env->rd.ray.direction = vec3_normalize(to_light);
 	env->rd.intersect.t = vec3_magnitude(to_light);
 }
 
 static void	compute_single_light(
-	t_env *env, const t_intersect *hit, const t_light *l, t_vec3 *color)
+	t_env *env, t_intersect *hit, const t_light *l, t_vec3 *color)
 {
 	float	diffuse;
 	float	specular;
@@ -41,7 +42,7 @@ static void	compute_single_light(
 	color->z += (diffuse * cr(hit->color.b) + specular) * cr(l->color.b);
 }
 
-t_color	compute_lighting(t_env *env, const t_intersect *hit)
+t_color	compute_lighting(t_env *env, t_intersect *hit)
 {
 	t_vec3	color;
 	size_t	i;
