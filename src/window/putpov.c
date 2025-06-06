@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   putpov.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 19:22:07 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/21 18:53:54 by msloot           ###   ########.fr       */
+/*   Created: 2025/06/06 23:51:31 by adelille          #+#    #+#             */
+/*   Updated: 2025/06/06 23:53:02 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	close_win(t_env *env)
+inline void	putpov(t_env *env)
 {
-	return (mlx_loop_end(env->mlx));
+	mlx_put_image_to_window(
+		env->mlx,
+		env->win.ptr,
+		env->pov[env->pov_index].ptr,
+		0, 0);
 }

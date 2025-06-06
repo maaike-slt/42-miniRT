@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 22:05:51 by msloot            #+#    #+#             */
-/*   Updated: 2025/05/30 22:25:35 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/06 23:50:26 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ static void	render_pov(t_env *env)
 void	render(t_env *env)
 {
 	init_render(env);
-	env->rd.pov_index = 0;
-	while (env->rd.pov_index < env->scene.c_amt)
+	env->pov_index = 0;
+	while (env->pov_index < env->scene.c_amt)
 	{
 		render_pov(env);
-		env->rd.pov_index++;
+		env->pov_index++;
 	}
 }

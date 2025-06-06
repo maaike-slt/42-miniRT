@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/06/05 22:45:57 by adelille         ###   ########.fr        #
+#    Updated: 2025/06/07 00:10:27 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,9 @@ SRC_NAME =	main.c \
 			vec3_math/scale.c vec3_math/dot.c vec3_math/cross.c \
 			vec3_math/magnitude.c vec3_math/normalize.c \
 			vec3_math/reflect.c \
-			window/create.c window/close.c window/hook.c window/handle_keycode.c \
+			window/create.c window/close.c \
+			window/putpov.c window/camera.c \
+			window/hook.c window/handle_keycode.c \
 			render/render.c render/init.c render/set_pixel.c \
 			render/pov_matrix.c render/ray_direction.c \
 			render/color_ratio.c \

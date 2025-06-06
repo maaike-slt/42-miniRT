@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 18:19:30 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/30 11:22:05 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/06 23:50:18 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	init_render_pixel(t_env *env, size_t x, size_t y)
 
 void	init_render_pov(t_env *env)
 {
-	env->rd.c = &(env->scene.c[env->rd.pov_index]);
-	env->rd.pov = &(env->pov[env->rd.pov_index]);
+	env->rd.c = &(env->scene.c[env->pov_index]);
+	env->rd.pov = &(env->pov[env->pov_index]);
 	env->rd.pov_matrix = pov_matrix(env->rd.c);
 	env->rd.viewport_h = 2.0f * tanf((env->rd.c->fov * M_PI / 180.0f) / 2.0f);
 	env->rd.viewport_w = env->rd.viewport_h * env->rd.aspect_ratio;
