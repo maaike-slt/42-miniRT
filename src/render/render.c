@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 22:05:51 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/07 00:20:32 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 00:23:35 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	render_pov(t_env *env)
 	size_t	y;
 
 	init_render_pov(env);
+	putpov(env);
 	y = 0;
 	while (y < env->win.h)
 	{
@@ -41,6 +42,7 @@ static void	render_pov(t_env *env)
 			render_pixel(env, x, y);
 			x++;
 		}
+		putpov(env);
 		y++;
 	}
 }
