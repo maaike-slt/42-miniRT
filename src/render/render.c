@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 22:05:51 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/06 23:50:26 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 00:20:32 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,6 @@ void	render(t_env *env)
 		render_pov(env);
 		env->pov_index++;
 	}
+	env->pov_index = 0;
+	putpov(env);
 }
