@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 17:24:29 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 17:47:09 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@
 
 # ifndef WINDOW_NAME
 #  define WINDOW_NAME	"miniRT"
+# endif
+
+# ifndef ANTI_ALIASING
+#  define ANTI_ALIASING	1
 # endif
 
 # define MAX_RESOLUTION		65535

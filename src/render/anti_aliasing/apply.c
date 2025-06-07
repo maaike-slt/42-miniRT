@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 16:33:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 17:33:52 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 17:43:51 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ void	apply_pixel_anti_aliasing(t_env *env, size_t x, size_t y)
 	sum[2] = original.b;
 	count = 1 + fetch_sum_pixel_neighbors(env, sum, x, y);
 	set_pixel(&(env->pov[env->pov_index]), (t_color){
-		.r = (t_color_bit)(sum[0] / count),
-		.g = (t_color_bit)(sum[1] / count),
-		.b = (t_color_bit)(sum[2] / count),
+		.r = (t_color_bit)(((sum[0] / count) + original.r) / 2),
+		.g = (t_color_bit)(((sum[1] / count) + original.g) / 2),
+		.b = (t_color_bit)(((sum[2] / count) + original.b) / 2),
 		.a = original.a,
 	}, index);
 }

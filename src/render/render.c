@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 22:05:51 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/07 16:23:48 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 17:47:20 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ static void	render_pov(t_env *env)
 		putpov(env);
 		d++;
 	}
-	apply_anti_aliasing(env);
+	if (ANTI_ALIASING)
+		apply_anti_aliasing(env);
 }
 
 void	render(t_env *env)
