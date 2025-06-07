@@ -2,6 +2,7 @@
 - multi light
 - colored light
 - triangle
+- square
 - cylinder cap with normals
 - half ellipsoid
 - resolution definition
