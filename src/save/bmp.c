@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:40:14 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 22:00:56 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 22:46:22 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static char	*get_output_path(const t_env *env)
 	size_t	i;
 
 	i = 0;
-	if (strncmp(env->file, "./", 2) == 0)
+	if (ft_strncmp(env->file, "./", 2) == 0)
 		i = 2;
-	if (strncmp(env->file + i, "input/", 6) == 0)
+	if (ft_strncmp(env->file + i, "input/", 6) == 0)
 		i += 6;
 	path = ft_strjoin(OUTPUT_PATH, env->file + i);
 	if (!path)
