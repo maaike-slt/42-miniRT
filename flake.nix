@@ -32,6 +32,8 @@
       forEachSystem
       (system: let
         pkgs = nixpkgs.legacyPackages.${system};
+
+        convert = "${pkgs.imagemagick}/bin/magick";
       in {
         default = devenv.lib.mkShell {
           inherit inputs pkgs;
@@ -51,6 +53,20 @@
                 # dev tools
                 norminette
                 # lldb
+
+                (
+                  pkgs.writers.writeBashBin
+                  "convert"
+                  {}
+                  /*
+                  bash
+                  */
+                  ''
+                    for file in ./output/*.bmp; do
+                    	${convert} "$file" "''${file%.bmp}.png"
+                    done
+                  ''
+                )
               ];
 
               env = {
@@ -118,10 +134,6 @@
                   stages = ["pre-commit" "pre-push"];
                 };
               };
-
-              enterShell = ''
-                alias cc='clang'
-              '';
             }
           ];
         };
