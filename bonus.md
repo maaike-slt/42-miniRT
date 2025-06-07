@@ -8,4 +8,4 @@
 - resolution definition
 - phong (specular reflection)
 - shadow
-- rendering follow a diagognal transverse pattern
+- rendering follow a diagonal transverse pattern
