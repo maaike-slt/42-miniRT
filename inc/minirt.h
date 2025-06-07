@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/03 21:12:13 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/05 23:01:27 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,18 @@ typedef struct s_pov_matrix
 	t_vec3	up;
 	t_vec3	forward;
 }	t_pov_matrix;
+
+typedef struct s_triangle_intersect
+{
+	t_vec3	edge_ab;
+	t_vec3	edge_ac;
+	t_vec3	cross_p;
+	t_vec3	cross_q;
+	float	determinant;
+	t_vec3	t_vec;
+	float	u;
+	float	v;
+}	t_triangle_intersect;
 
 typedef struct s_intersect
 {
@@ -177,7 +189,7 @@ t_vec3			vec3_reflect(t_vec3 incident, t_vec3 normal);
 t_pov_matrix	pov_matrix(const t_camera *c);
 t_vec3			calc_ray_direction(t_env *env, size_t x, size_t y);
 
-t_color			compute_lighting(t_env *env, const t_intersect *hit);
+t_color			compute_lighting(t_env *env, t_intersect *hit);
 t_vec3			apply_ambient_light(t_color color, t_ambient ambient);
 float			compute_specular(
 					t_env *env, const t_intersect *hit, const t_light *l);
@@ -189,12 +201,14 @@ bool			intersect_cylinder(t_env *env);
 float			intersect_cylinder_cap_bottom(t_env *env, const t_cylinder *cy);
 float			intersect_cylinder_cap_top(t_env *env, const t_cylinder *cy);
 bool			intersect_square(t_env *env);
+bool			intersect_triangle(t_env *env);
 
 void			fill_intersect_hit(t_env *env, t_intersect *hit);
 void			fill_intersect_sphere_hit(t_env *env, t_intersect *hit);
 void			fill_intersect_plane_hit(t_env *env, t_intersect *hit);
 void			fill_intersect_cylinder_hit(t_env *env, t_intersect *hit);
 void			fill_intersect_square_hit(t_env *env, t_intersect *hit);
+void			fill_intersect_triangle_hit(t_env *env, t_intersect *hit);
 
 float			solve_plane_intersection(t_env *env, t_vec3 pos, t_vec3 normal);
 
