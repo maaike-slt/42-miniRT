@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:40:14 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 21:31:12 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 22:00:56 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	save_pov(const t_env *env)
 
 	pixel_size = env->win.w * env->win.h * sizeof(t_color_bit) * 4;
 	if (env->win.w > UINT_MAX || env->win.h > UINT_MAX
-		|| pixel_size + 122 > UINT_MAX)
+		|| pixel_size + BMP_HEADER_SIZE > UINT_MAX)
 	{
 		puterr();
 		ft_putstr_fd("cannot save pov as bmp, resolution is too big\n",

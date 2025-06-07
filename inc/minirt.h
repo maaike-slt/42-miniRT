@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 21:28:03 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 22:00:33 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # endif
 
 # define OUTPUT_PATH		"./output/"
+# define BMP_HEADER_SIZE	70
 
 # define MAX_RESOLUTION		65535
 # define FLOAT_PRECISION	0.01f
