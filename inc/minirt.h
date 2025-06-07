@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 14:22:34 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 15:26:25 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,5 +222,6 @@ int				free_env(t_env *env);
 
 void			puterr(void);
 void			puterr_argc(void);
+void			puterr_filetype(void);
 
 #endif
