@@ -1,5 +1,8 @@
 miniRT
 
+# bmp output
+*.bmp
+
 # nvim backup
 *~
 
