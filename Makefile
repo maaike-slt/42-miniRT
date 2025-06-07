@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/06/07 00:10:27 by adelille         ###   ########.fr        #
+#    Updated: 2025/06/07 12:12:31 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,9 @@ CC = 	cc
 RM = 	rm -rf
 
 CFLAGS =	-Wall -Werror -Wextra
-CFLAGS +=	-g
+# CFLAGS +=	-g
 # CFLAGS +=	-fsanitize=address
+CFLAGS +=	-O2
 
 ASMFLAGS =	-MMD -MP
 ASMINC =	-I./inc/
