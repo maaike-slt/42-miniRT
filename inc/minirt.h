@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/05 23:01:27 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 10:45:34 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ typedef struct s_intersect
 typedef struct s_render_data
 {
 	float			aspect_ratio;
-	size_t			pov_index;
 	t_camera		*c;
 	t_img			*pov;
 	float			viewport_w;
@@ -124,6 +123,7 @@ typedef struct s_env
 	t_win			win;
 	t_scene			scene;
 	t_img			*pov;
+	size_t			pov_index;
 	t_render_data	rd;
 }	t_env;
 
@@ -152,6 +152,7 @@ enum	e_keypress_linux
 	K_A = 97,
 	K_S = 115,
 	K_D = 100,
+	K_SPACE = 32,
 };
 
 bool			init(t_env *env);
@@ -162,8 +163,11 @@ bool			parse(t_env *env, const char *file);
 
 int				close_win(t_env *env);
 bool			create_window(t_env *env);
+void			putpov(t_env *env);
 void			set_hook(t_env *env);
 int				handle_keycode(int keycode, t_env *env);
+void			next_camera(t_env *env);
+void			prev_camera(t_env *env);
 
 void			render(t_env *env);
 
