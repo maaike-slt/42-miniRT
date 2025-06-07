@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 11:19:52 by adelille          #+#    #+#             */
-/*   Updated: 2025/05/31 11:19:56 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 18:00:22 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,15 @@
 
 static void	init_pov_pixel(t_env *env, t_img *pov)
 {
-	t_color	color;
 	size_t	pov_size;
 	size_t	pix_i;
 
-	color = (t_color){
-		crr(cr(env->scene.a.color.r) * env->scene.a.lighting_ratio),
-		crr(cr(env->scene.a.color.g) * env->scene.a.lighting_ratio),
-		crr(cr(env->scene.a.color.b) * env->scene.a.lighting_ratio),
-		0x80
-	};
+	env->rd.ambient_color = get_ambient_color(env);
 	pov_size = env->win.w * env->win.h;
 	pix_i = 0;
 	while (pix_i < pov_size)
 	{
-		set_pixel(pov, color, pix_i);
+		set_pixel(pov, env->rd.ambient_color, pix_i);
 		pix_i++;
 	}
 }

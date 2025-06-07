@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 15:26:25 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 18:21:45 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@
 
 # ifndef WINDOW_NAME
 #  define WINDOW_NAME	"miniRT"
+# endif
+
+# ifndef ANTI_ALIASING
+#  define ANTI_ALIASING	1
 # endif
 
 # define MAX_RESOLUTION		65535
@@ -99,6 +103,7 @@ typedef struct s_intersect
 
 typedef struct s_render_data
 {
+	t_color			ambient_color;
 	float			aspect_ratio;
 	t_camera		*c;
 	t_img			*pov;
@@ -108,6 +113,7 @@ typedef struct s_render_data
 	t_ray			ray;
 	t_intersect		intersect;
 	t_vec3			view_direction;
+	t_img			original_pov;
 }	t_render_data;
 
 typedef struct s_win
@@ -178,6 +184,7 @@ void			init_render_pixel(t_env *env, size_t x, size_t y);
 float			cr(t_color_bit c);
 t_color_bit		crr(float c);
 
+t_color			get_pixel(const t_img *img, size_t index);
 void			set_pixel(t_img *img, t_color color, size_t index);
 
 t_vec3			vec3_negate(t_vec3 v);
@@ -192,6 +199,8 @@ t_vec3			vec3_reflect(t_vec3 incident, t_vec3 normal);
 
 t_pov_matrix	pov_matrix(const t_camera *c);
 t_vec3			calc_ray_direction(t_env *env, size_t x, size_t y);
+
+t_color			get_ambient_color(const t_env *env);
 
 t_color			compute_lighting(t_env *env, t_intersect *hit);
 t_vec3			apply_ambient_light(t_color color, t_ambient ambient);
@@ -217,6 +226,13 @@ void			fill_intersect_triangle_hit(t_env *env, t_intersect *hit);
 float			solve_plane_intersection(t_env *env, t_vec3 pos, t_vec3 normal);
 
 bool			keep_closest(t_env *env, float t);
+
+void			apply_anti_aliasing(t_env *env);
+void			reverse_transversal_anti_aliasing(t_env *env);
+void			apply_pixel_anti_aliasing(
+					t_env *env, size_t x, size_t y, size_t index);
+
+t_color			progress_color(bool intersected);
 
 int				free_env(t_env *env);
 
