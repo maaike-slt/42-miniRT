@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/06/07 12:12:31 by adelille         ###   ########.fr        #
+#    Updated: 2025/06/07 16:47:20 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,7 @@ SRC_NAME =	main.c \
 			window/create.c window/close.c \
 			window/putpov.c window/camera.c \
 			window/hook.c window/handle_keycode.c \
-			render/render.c render/init.c render/set_pixel.c \
+			render/render.c render/init.c render/get_set_pixel.c \
 			render/pov_matrix.c render/ray_direction.c \
 			render/color_ratio.c \
 			render/light/compute.c render/light/ambient.c render/light/specular.c \
@@ -101,6 +101,7 @@ SRC_NAME =	main.c \
 			render/intersect/square.c \
 			render/intersect/triangle.c \
 			render/intersect/keep_closest.c \
+			render/anti_aliasing/apply.c render/anti_aliasing/iterate.c \
 			puterr.c \
 			free.c
 
