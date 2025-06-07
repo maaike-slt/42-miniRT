@@ -11,3 +11,4 @@
 - shadow
 - rendering follow a diagonal transverse pattern
 - anti-aliasing
+- store file as bitmap
