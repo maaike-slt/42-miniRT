@@ -9,3 +9,4 @@
 - camera fov follow viewport curve
 - phong (specular reflection)
 - shadow
+- rendering follow a diagognal transverse pattern
