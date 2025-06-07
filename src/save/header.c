@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:58:39 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 22:02:49 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 22:10:05 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	write_bmp_header(const t_env *env, int fd, uint32_t pixel_size)
 	header[1] = 'M';
 	set_uint32(header, 2, file_size);
 	set_uint32(header, 10, BMP_HEADER_SIZE);
-	set_uint32(header, 14, 40);
+	set_uint32(header, 14, 108);
 	set_uint32(header, 18, (uint32_t)(env->win.w));
 	set_uint32(header, 22, (uint32_t)(-env->win.h));
 	set_uint16(header, 26, 1);
@@ -48,5 +48,6 @@ void	write_bmp_header(const t_env *env, int fd, uint32_t pixel_size)
 	set_uint32(header, 58, 0x0000FF00);
 	set_uint32(header, 62, 0x000000FF);
 	set_uint32(header, 66, 0xFF000000);
+	set_uint32(header, 70, 0x57696E20);
 	(void)write(fd, header, sizeof(header));
 }
