@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 15:17:26 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/07 15:26:25 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@
 # endif
 
 # define MAX_RESOLUTION		65535
-# define FLOAT_PRECISION	0.001f
+# define FLOAT_PRECISION	0.01f
 
-# define SHININESS			8.0f
+# define DEFAULT_SHININESS	32.0f
 
 typedef struct s_img
 {

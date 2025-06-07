@@ -6,14 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 22:30:55 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/05 23:01:17 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 14:08:50 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void	init_light_data(
-	t_env *env, const t_light *l, t_intersect *hit)
+static void	init_light_data(t_env *env, const t_light *l, t_intersect *hit)
 {
 	t_vec3			to_light;
 

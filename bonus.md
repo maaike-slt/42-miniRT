@@ -7,5 +7,6 @@
 - half ellipsoid
 - resolution definition
 - phong (specular reflection)
+- light shininess parameter
 - shadow
 - rendering follow a diagonal transverse pattern
