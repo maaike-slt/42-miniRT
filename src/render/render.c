@@ -6,24 +6,32 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 22:05:51 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/07 17:47:20 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 18:24:04 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void	render_pixel(t_env *env, size_t x, size_t y)
+static bool	render_pixel(t_env *env, size_t x, size_t y, size_t index)
 {
 	t_intersect	camera_hit;
 
 	init_render_pixel(env, x, y);
 	if (!intersect_all(env))
-		return ;
+	{
+		set_pixel(env->rd.pov, env->rd.ambient_color, index);
+		if (x < env->win.w - 1)
+			set_pixel(env->rd.pov, progress_color(false), index + 1);
+		return (false);
+	}
 	fill_intersect_hit(env, &camera_hit);
 	set_pixel(
 		env->rd.pov,
 		compute_lighting(env, &camera_hit),
-		y * env->win.w + x);
+		index);
+	if (x < env->win.w - 1)
+		set_pixel(env->rd.pov, progress_color(true), index + 1);
+	return (true);
 }
 
 static ssize_t	get_start_x(t_env *env, ssize_t d)
@@ -48,6 +56,7 @@ static void	render_pov(t_env *env)
 	ssize_t	y;
 	ssize_t	d;
 	ssize_t	start_x;
+	size_t	index;
 
 	init_render_pov(env);
 	putpov(env);
@@ -59,14 +68,13 @@ static void	render_pov(t_env *env)
 		while (x >= start_x)
 		{
 			y = d - x;
-			render_pixel(env, (size_t)x, (size_t)y);
+			index = (size_t)y * env->win.w + (size_t)x;
+			render_pixel(env, (size_t)x, (size_t)y, index);
 			x--;
 		}
 		putpov(env);
 		d++;
 	}
-	if (ANTI_ALIASING)
-		apply_anti_aliasing(env);
 }
 
 void	render(t_env *env)
@@ -76,6 +84,8 @@ void	render(t_env *env)
 	while (env->pov_index < env->scene.c_amt)
 	{
 		render_pov(env);
+		if (ANTI_ALIASING)
+			apply_anti_aliasing(env);
 		env->pov_index++;
 	}
 	env->pov_index = 0;

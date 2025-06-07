@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/06/07 16:47:20 by adelille         ###   ########.fr        #
+#    Updated: 2025/06/07 18:22:30 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,6 +102,7 @@ SRC_NAME =	main.c \
 			render/intersect/triangle.c \
 			render/intersect/keep_closest.c \
 			render/anti_aliasing/apply.c render/anti_aliasing/iterate.c \
+			render/progress_color.c \
 			puterr.c \
 			free.c
 

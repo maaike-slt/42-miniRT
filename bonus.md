@@ -10,3 +10,4 @@
 - light shininess parameter
 - shadow
 - rendering follow a diagonal transverse pattern
+- anti-aliasing

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 16:33:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 17:43:51 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 18:10:39 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,12 @@ static size_t	fetch_sum_pixel_neighbors(
 	return (count);
 }
 
-void	apply_pixel_anti_aliasing(t_env *env, size_t x, size_t y)
+void	apply_pixel_anti_aliasing(t_env *env, size_t x, size_t y, size_t index)
 {
 	t_color		original;
 	uint16_t	sum[3];
-	size_t		index;
 	size_t		count;
 
-	index = y * env->win.w + x;
 	original = get_pixel(&(env->rd.original_pov), index);
 	sum[0] = original.r;
 	sum[1] = original.g;

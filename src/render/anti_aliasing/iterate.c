@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 16:33:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 17:46:46 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 18:22:44 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	reverse_transversal_anti_aliasing(t_env *env)
 	ssize_t	end_x;
 	ssize_t	x;
 	ssize_t	y;
+	size_t	index;
 
 	d = env->win.w + env->win.h - 2;
 	while (d >= 0)
@@ -43,7 +44,10 @@ void	reverse_transversal_anti_aliasing(t_env *env)
 		while (x <= end_x)
 		{
 			y = d - x;
-			apply_pixel_anti_aliasing(env, (size_t)x, (size_t)y);
+			index = (size_t)y * env->win.w + (size_t)x;
+			apply_pixel_anti_aliasing(env, (size_t)x, (size_t)y, index);
+			if (x > 0)
+				set_pixel(env->rd.pov, progress_color(false), index - 1);
 			x++;
 		}
 		putpov(env);

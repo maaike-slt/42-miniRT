@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 17:47:09 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 18:21:45 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ typedef struct s_intersect
 
 typedef struct s_render_data
 {
+	t_color			ambient_color;
 	float			aspect_ratio;
 	t_camera		*c;
 	t_img			*pov;
@@ -199,6 +200,8 @@ t_vec3			vec3_reflect(t_vec3 incident, t_vec3 normal);
 t_pov_matrix	pov_matrix(const t_camera *c);
 t_vec3			calc_ray_direction(t_env *env, size_t x, size_t y);
 
+t_color			get_ambient_color(const t_env *env);
+
 t_color			compute_lighting(t_env *env, t_intersect *hit);
 t_vec3			apply_ambient_light(t_color color, t_ambient ambient);
 float			compute_specular(
@@ -226,7 +229,10 @@ bool			keep_closest(t_env *env, float t);
 
 void			apply_anti_aliasing(t_env *env);
 void			reverse_transversal_anti_aliasing(t_env *env);
-void			apply_pixel_anti_aliasing(t_env *env, size_t x, size_t y);
+void			apply_pixel_anti_aliasing(
+					t_env *env, size_t x, size_t y, size_t index);
+
+t_color			progress_color(bool intersected);
 
 int				free_env(t_env *env);
 
