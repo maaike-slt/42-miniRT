@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 22:05:51 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/07 00:23:35 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 11:03:08 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,44 @@ static void	render_pixel(t_env *env, size_t x, size_t y)
 		y * env->win.w + x);
 }
 
+static ssize_t	get_start_x(t_env *env, ssize_t d)
+{
+	if (d > (ssize_t)env->win.h - 1)
+		return (d - ((ssize_t)env->win.h - 1));
+	else
+		return (0);
+}
+
+static ssize_t	get_end_x(t_env *env, ssize_t d)
+{
+	if (d < (ssize_t)env->win.w - 1)
+		return (d);
+	else
+		return ((ssize_t)env->win.w - 1);
+}
+
 static void	render_pov(t_env *env)
 {
-	size_t	x;
-	size_t	y;
+	ssize_t	x;
+	ssize_t	y;
+	ssize_t	d;
+	ssize_t	start_x;
 
 	init_render_pov(env);
 	putpov(env);
-	y = 0;
-	while (y < env->win.h)
+	d = 0;
+	while (d < (ssize_t)env->win.w + (ssize_t)env->win.h - 1)
 	{
-		x = 0;
-		while (x < env->win.w)
+		start_x = get_start_x(env, d);
+		x = get_end_x(env, d);
+		while (x >= start_x)
 		{
-			render_pixel(env, x, y);
-			x++;
+			y = d - x;
+			render_pixel(env, (size_t)x, (size_t)y);
+			x--;
 		}
 		putpov(env);
-		y++;
+		d++;
 	}
 }
 
