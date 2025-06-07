@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:09:57 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/07 15:18:10 by msloot           ###   ########.fr       */
+/*   Updated: 2025/06/07 15:22:48 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static bool	validate_scene(t_env *env)
 	if (env->scene.c_amt == 0)
 		return (\
 puterr(), ft_putstr_fd("no camera found\n", STDERR_FILENO), false);
-	// if ...
 	return (true);
 }
 
