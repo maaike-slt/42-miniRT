@@ -32,6 +32,8 @@
       forEachSystem
       (system: let
         pkgs = nixpkgs.legacyPackages.${system};
+
+        ffmpeg = "${pkgs.ffmpeg}/bin/ffmpeg";
       in {
         default = devenv.lib.mkShell {
           inherit inputs pkgs;
@@ -51,6 +53,22 @@
                 # dev tools
                 norminette
                 # lldb
+
+                (
+                  pkgs.writers.writeBashBin
+                  "convert"
+                  {}
+                  /*
+                  bash
+                  */
+                  ''
+                    for file in ./output/*.bmp; do
+                    	printf "\033[1m$file\033[0m ->";
+                    	${ffmpeg} -i "$file" -c:v png "''${file%.bmp}.png" -y -v 0
+                    	printf " \033[1;32m''${file%.bmp}.png\033[0m\n";
+                    done
+                  ''
+                )
               ];
 
               env = {
@@ -118,10 +136,6 @@
                   stages = ["pre-commit" "pre-push"];
                 };
               };
-
-              enterShell = ''
-                alias cc='clang'
-              '';
             }
           ];
         };

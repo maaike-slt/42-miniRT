@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:30:54 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 18:21:45 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 22:08:45 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,19 @@
 # include "object.h"
 
 # ifndef WINDOW_NAME
-#  define WINDOW_NAME	"miniRT"
+#  define WINDOW_NAME		"miniRT"
 # endif
 
 # ifndef ANTI_ALIASING
-#  define ANTI_ALIASING	1
+#  define ANTI_ALIASING		1
 # endif
+
+# ifndef SAVE_BMP
+#  define SAVE_BMP			1
+# endif
+
+# define OUTPUT_PATH		"./output/"
+# define BMP_HEADER_SIZE	122
 
 # define MAX_RESOLUTION		65535
 # define FLOAT_PRECISION	0.01f
@@ -125,6 +132,7 @@ typedef struct s_win
 
 typedef struct s_env
 {
+	const char		*file;
 	void			*mlx;
 	t_win			win;
 	t_scene			scene;
@@ -233,6 +241,9 @@ void			apply_pixel_anti_aliasing(
 					t_env *env, size_t x, size_t y, size_t index);
 
 t_color			progress_color(bool intersected);
+
+void			save_pov(const t_env *env);
+void			write_bmp_header(const t_env *env, int fd, uint32_t pixel_size);
 
 int				free_env(t_env *env);
 

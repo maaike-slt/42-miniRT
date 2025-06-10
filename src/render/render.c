@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 22:05:51 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/07 18:24:04 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/07 21:06:43 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ void	render(t_env *env)
 		render_pov(env);
 		if (ANTI_ALIASING)
 			apply_anti_aliasing(env);
+		if (SAVE_BMP)
+			save_pov(env);
 		env->pov_index++;
 	}
 	env->pov_index = 0;
