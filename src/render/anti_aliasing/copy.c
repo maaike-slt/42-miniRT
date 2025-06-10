@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   specular.c                                         :+:      :+:    :+:   */
+/*   copy.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/31 11:04:09 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 18:38:40 by adelille         ###   ########.fr       */
+/*   Created: 2025/06/07 17:30:23 by adelille          #+#    #+#             */
+/*   Updated: 2025/06/07 17:30:35 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-float	compute_specular(
-	t_env *env, const t_intersect *hit, const t_light *l)
+t_img	img_copy(const t_img *src)
 {
-	t_vec3	reflect_direction;
-	float	specular;
+	t_img	copy;
 
-	reflect_direction = \
-vec3_reflect(vec3_negate(env->rd.ray.direction), hit->normal);
-	specular = fmaxf(vec3_dot(reflect_direction, env->rd.view_direction), 0.0f);
-	return (powf(specular, l->shininess)
-		* l->brightness
-		* fmaxf(l->shininess / DEFAULT_SHININESS, 1.0f));
+	copy.ptr = src->ptr;
+	copy.buf = src->buf;
+	copy.bpp = src->bpp;
+	copy.size_line = src->size_line;
+	copy.endian = src->endian;
+	return (copy);
+}
+
+void	img_buffer_copy(t_img *dst, const t_img *src)
+{
+	if (dst->buf && src->buf)
+		ft_memcpy(dst->buf, src->buf, dst->size_line * dst->endian);
+	else
+		puterr();
 }

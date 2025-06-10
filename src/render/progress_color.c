@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   specular.c                                         :+:      :+:    :+:   */
+/*   progress_color.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/31 11:04:09 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 18:38:40 by adelille         ###   ########.fr       */
+/*   Created: 2025/06/07 18:19:30 by adelille          #+#    #+#             */
+/*   Updated: 2025/06/07 18:25:00 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-float	compute_specular(
-	t_env *env, const t_intersect *hit, const t_light *l)
+t_color	progress_color(bool intersected)
 {
-	t_vec3	reflect_direction;
-	float	specular;
-
-	reflect_direction = \
-vec3_reflect(vec3_negate(env->rd.ray.direction), hit->normal);
-	specular = fmaxf(vec3_dot(reflect_direction, env->rd.view_direction), 0.0f);
-	return (powf(specular, l->shininess)
-		* l->brightness
-		* fmaxf(l->shininess / DEFAULT_SHININESS, 1.0f));
+	if (intersected)
+		return ((t_color){
+			.r = 0x00,
+			.g = 0xff,
+			.b = 0x00,
+			.a = 0xff
+		});
+	else
+		return ((t_color){
+			.r = 0xff,
+			.g = 0x80,
+			.b = 0xff,
+			.a = 0xff
+		});
 }
