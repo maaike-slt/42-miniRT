@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:58:39 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 22:10:05 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/10 11:41:36 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ void	write_bmp_header(const t_env *env, int fd, uint32_t pixel_size)
 	set_uint32(header, 62, 0x000000FF);
 	set_uint32(header, 66, 0xFF000000);
 	set_uint32(header, 70, 0x57696E20);
-	(void)write(fd, header, sizeof(header));
+	(void)!write(fd, header, sizeof(header));
 }

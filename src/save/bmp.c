@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bmp.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:40:14 by adelille          #+#    #+#             */
-/*   Updated: 2025/06/07 22:46:22 by adelille         ###   ########.fr       */
+/*   Updated: 2025/06/10 11:39:58 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ void	save_pov(const t_env *env)
 	if (fd < 0)
 		return (puterr_cannot_open_bmp());
 	write_bmp_header(env, fd, (uint32_t)pixel_size);
-	(void)write(fd, env->pov[env->pov_index].buf, pixel_size);
+	(void)!write(fd, env->pov[env->pov_index].buf, pixel_size);
 	close(fd);
 }
